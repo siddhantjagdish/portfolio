@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Writing & Work — Siddhant Jagdish</title>
+  <meta name="description" content="Case studies, articles, and projects by Siddhant Jagdish — Product Manager." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Prevent theme flash -->
+  <script>
+    (function(){var t=localStorage.getItem('sj-theme');if(t)document.documentElement.dataset.theme=t;})();
+  </script>
+</head>
+<body class="page-loading">
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+      <div class="loader-monogram">SJ</div>
+      <div class="loader-bar"><div class="loader-fill"></div></div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">SJ</a>
+      <ul class="nav-links">
+        <li><a href="index.html#about" class="nav-link">About</a></li>
+        <li><a href="index.html#experience" class="nav-link">Experience</a></li>
+        <li><a href="index.html#skills" class="nav-link">Skills</a></li>
+        <li><a href="journey.html" class="nav-link">My Journey</a></li>
+        <li><a href="blog.html" class="nav-link nav-link-active">Work</a></li>
+        <li><a href="index.html#contact" class="btn btn-nav">Say Hello</a></li>
+      </ul>
+      <div class="nav-right">
+        <div class="theme-toggle-wrap">
+          <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark theme" aria-pressed="false">
+            <div class="knockout">
+              <div class="indicator--masked">
+                <div class="mask"></div>
+              </div>
+            </div>
+            <div class="indicator__liquid">
+              <div class="shadow"></div>
+              <div class="wrapper">
+                <div class="liquids">
+                  <div class="liquid__shadow"></div>
+                  <div class="liquid__track"></div>
+                </div>
+              </div>
+              <div class="cover">
+                <svg class="tgl-icon icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                <svg class="tgl-icon icon-sparkle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1l2 7h7l-5.5 4 2 7L12 15l-5.5 4 2-7L3 8h7z"/></svg>
+                <svg class="tgl-icon icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+              </div>
+            </div>
+          </button>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="nav-drawer" id="nav-drawer">
+      <ul>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#experience">Experience</a></li>
+        <li><a href="index.html#skills">Skills</a></li>
+        <li><a href="journey.html">My Journey</a></li>
+        <li><a href="blog.html">Work</a></li>
+        <li><a href="index.html#contact">Say Hello</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════════════════
+       BLOG HERO
+  ══════════════════════════════════════ -->
+  <section class="blog-hero">
+    <div class="hero-bg">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="dot-grid"></div>
+      <canvas class="sub-canvas" id="blog-canvas"></canvas>
+    </div>
+    <div class="container blog-hero-body">
+      <span class="section-label" style="margin-bottom:20px;display:inline-block;">Portfolio</span>
+      <h1 class="blog-hero-title">
+        <span class="hl">Writing &</span>
+        <span class="hl hl-grad">Work</span>
+      </h1>
+      <p class="blog-hero-sub">
+        Case studies, product thinking, articles, and side projects.
+      </p>
+
+      <div class="blog-meta-row">
+        <div class="blog-meta-stat">
+          <span class="bm-num" id="total-count">6</span>
+          <span class="bm-label">Total pieces</span>
+        </div>
+        <div class="blog-meta-sep"></div>
+        <div class="blog-meta-stat">
+          <span class="bm-num">2</span>
+          <span class="bm-label">Case studies</span>
+        </div>
+        <div class="blog-meta-sep"></div>
+        <div class="blog-meta-stat">
+          <span class="bm-num">3</span>
+          <span class="bm-label">Articles</span>
+        </div>
+        <div class="blog-meta-sep"></div>
+        <div class="blog-meta-stat">
+          <span class="bm-num">1</span>
+          <span class="bm-label">Projects</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       FILTER + GRID
+  ══════════════════════════════════════ -->
+  <section class="section blog-section">
+    <div class="container">
+
+      <!-- Filter Tabs -->
+      <div class="filter-tabs reveal-up">
+        <button class="filter-btn filter-active" data-filter="all">All Work</button>
+        <button class="filter-btn" data-filter="case-study">Case Studies</button>
+        <button class="filter-btn" data-filter="article">Articles</button>
+        <button class="filter-btn" data-filter="project">Projects</button>
+      </div>
+
+      <!-- Featured Card -->
+      <div class="blog-featured reveal-up" data-category="case-study">
+        <div class="bf-img">
+          <div class="bf-img-inner bfi-1"><i class="fas fa-file-invoice-dollar"></i></div>
+          <div class="bf-overlay">
+            <a href="#" class="bf-link"><i class="fas fa-arrow-up-right-from-square"></i></a>
+          </div>
+          <div class="bf-badge">Featured</div>
+        </div>
+        <div class="bf-body">
+          <div class="bf-tags">
+            <span class="tag-cs">Case Study</span>
+            <span class="tag-plain">AI Automation</span>
+            <span class="tag-plain">HR Tech</span>
+          </div>
+          <h2 class="bf-title">Automating $19M/month in Global Payroll — Multiplier Technologies</h2>
+          <p class="bf-excerpt">
+            How I used AI agents and workflow automation to streamline invoicing across 1,800+ invoices/month for 1,400+ companies in 150+ countries — pushing automation from ~92% to 98%+ and saving 50+ hours of manual effort per month.
+          </p>
+          <div class="bf-footer">
+            <div class="bf-meta">
+              <span><i class="far fa-clock"></i> 8 min read</span>
+              <span><i class="far fa-calendar-alt"></i> 2025</span>
+            </div>
+            <a href="#" class="work-link">Read Case Study <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Blog Grid -->
+      <div class="blog-grid" id="blog-grid">
+
+        <div class="blog-card reveal-up" data-category="case-study" data-delay="0">
+          <div class="bc-img">
+            <div class="bc-img-inner bci-2"><i class="fas fa-shield-halved"></i></div>
+            <div class="work-overlay">
+              <a href="#" class="work-overlay-btn"><i class="fas fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+          <div class="bc-body">
+            <div class="bc-tags">
+              <span class="tag-cs">Case Study</span>
+              <span class="tag-plain">AI Compliance</span>
+            </div>
+            <h3>AI-Powered Global Compliance Monitoring</h3>
+            <p>Built a system that tracked regulatory policy changes across 150+ countries — cutting response time from days to seconds and eliminating manual monitoring entirely.</p>
+            <div class="bc-footer">
+              <span><i class="far fa-clock"></i> 6 min read</span>
+              <a href="#" class="work-link">Read More <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="blog-card reveal-up" data-category="article" data-delay="80">
+          <div class="bc-img">
+            <div class="bc-img-inner bci-3"><i class="fas fa-robot"></i></div>
+            <div class="work-overlay">
+              <a href="#" class="work-overlay-btn"><i class="fas fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+          <div class="bc-body">
+            <div class="bc-tags">
+              <span class="tag-art">Article</span>
+              <span class="tag-plain">AI in Product</span>
+            </div>
+            <h3>How AI Agents Are Changing the PM's Job</h3>
+            <p>Reflections on working with AI agents as a product surface — what changes, what stays the same, and how PMs should think about this shift.</p>
+            <div class="bc-footer">
+              <span><i class="far fa-clock"></i> 5 min read</span>
+              <a href="#" class="work-link">Read More <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="blog-card reveal-up" data-category="article" data-delay="160">
+          <div class="bc-img">
+            <div class="bc-img-inner bci-4"><i class="fas fa-lightbulb"></i></div>
+            <div class="work-overlay">
+              <a href="#" class="work-overlay-btn"><i class="fas fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+          <div class="bc-body">
+            <div class="bc-tags">
+              <span class="tag-art">Article</span>
+              <span class="tag-plain">Product Thinking</span>
+            </div>
+            <h3>What Running a 150-Person Club Taught Me About Product Management</h3>
+            <p>Lessons from founding HoPES that I still apply every day as a PM — on leadership, scope, stakeholders, and shipping.</p>
+            <div class="bc-footer">
+              <span><i class="far fa-clock"></i> 7 min read</span>
+              <a href="#" class="work-link">Read More <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="blog-card reveal-up" data-category="article" data-delay="0">
+          <div class="bc-img">
+            <div class="bc-img-inner bci-5"><i class="fas fa-chart-line"></i></div>
+            <div class="work-overlay">
+              <a href="#" class="work-overlay-btn"><i class="fas fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+          <div class="bc-body">
+            <div class="bc-tags">
+              <span class="tag-art">Article</span>
+              <span class="tag-plain">Automation</span>
+            </div>
+            <h3>The Anatomy of a Great Automation Initiative</h3>
+            <p>How to identify automation opportunities in a product, build the right solution, and measure success — lessons from the trenches of global payroll.</p>
+            <div class="bc-footer">
+              <span><i class="far fa-clock"></i> 6 min read</span>
+              <a href="#" class="work-link">Read More <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="blog-card reveal-up" data-category="project" data-delay="80">
+          <div class="bc-img">
+            <div class="bc-img-inner bci-6"><i class="fas fa-camera"></i></div>
+            <div class="work-overlay">
+              <a href="#" class="work-overlay-btn"><i class="fas fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+          <div class="bc-body">
+            <div class="bc-tags">
+              <span class="tag-proj">Venture</span>
+              <span class="tag-plain">Entrepreneurship</span>
+            </div>
+            <h3>HMC Studios — Building a 7-Figure Media Agency from 0</h3>
+            <p>How I founded, scaled, and systematized a media production agency that delivered 100+ projects for national and international clients within its first year.</p>
+            <div class="bc-footer">
+              <span><i class="far fa-clock"></i> 4 min read</span>
+              <a href="#" class="work-link">Explore <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Empty state (hidden by default) -->
+      <div class="blog-empty" id="blog-empty" style="display:none;">
+        <i class="fas fa-search"></i>
+        <h3>Nothing here yet</h3>
+        <p>Check back soon for new content in this category.</p>
+        <button class="btn btn-outline" onclick="resetFilter()">View All Work</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       CTA
+  ══════════════════════════════════════ -->
+  <section class="blog-cta-section">
+    <div class="container">
+      <div class="blog-cta-inner reveal-up">
+        <h2>Want to collaborate<br>or have a conversation?</h2>
+        <p>I'm always open to discussing product ideas, writing opportunities, or interesting problems worth solving.</p>
+        <a href="index.html#contact" class="btn btn-primary">Get In Touch <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo">SJ</a>
+          <p>Associate Product Manager.<br>Building products that matter.</p>
+        </div>
+        <div class="footer-nav-cols">
+          <div class="footer-col">
+            <h4>Navigate</h4>
+            <ul>
+              <li><a href="index.html#about">About</a></li>
+              <li><a href="index.html#experience">Experience</a></li>
+              <li><a href="index.html#skills">Skills</a></li>
+              <li><a href="journey.html">My Journey</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Work</h4>
+            <ul>
+              <li><a href="blog.html">Case Studies</a></li>
+              <li><a href="blog.html">Articles</a></li>
+              <li><a href="blog.html">Projects</a></li>
+              <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Siddhant Jagdish. Crafted with intention.</p>
+        <a href="#" class="back-top" id="back-top"><i class="fas fa-arrow-up"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Liquid Glass SVG Filters -->
+  <svg style="display:none" aria-hidden="true">
+    <defs>
+      <filter id="liquid-glass" x="-10%" y="-10%" width="120%" height="120%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.75 0.75" numOctaves="4" seed="8" result="noise"/>
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="5" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+      <filter id="tgl-goo">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur"/>
+        <feColorMatrix in="blur" type="matrix"
+          values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -9"
+          result="goo"/>
+        <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+      </filter>
+      <filter id="tgl-remove-black" color-interpolation-filters="sRGB">
+        <feColorMatrix type="matrix"
+          values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  -255 -255 -255 0 1"
+          result="black-pixels"/>
+        <feMorphology in="black-pixels" operator="dilate" radius="0.5" result="smoothed"/>
+        <feComposite in="SourceGraphic" in2="smoothed" operator="out"/>
+      </filter>
+    </defs>
+  </svg>
+
+  <script src="https://unpkg.com/gsap@3.12.2/dist/gsap.min.js"></script>
+  <script src="https://unpkg.com/gsap@3.12.2/dist/ScrollTrigger.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

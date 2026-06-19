@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Journey — Siddhant Jagdish</title>
+  <meta name="description" content="The story of how Siddhant Jagdish became a product manager — from university to Multiplier Technologies and beyond." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Prevent theme flash -->
+  <script>
+    (function(){var t=localStorage.getItem('sj-theme');if(t)document.documentElement.dataset.theme=t;})();
+  </script>
+</head>
+<body class="page-loading">
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+      <div class="loader-monogram">SJ</div>
+      <div class="loader-bar"><div class="loader-fill"></div></div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">SJ</a>
+      <ul class="nav-links">
+        <li><a href="index.html#about" class="nav-link">About</a></li>
+        <li><a href="index.html#experience" class="nav-link">Experience</a></li>
+        <li><a href="index.html#skills" class="nav-link">Skills</a></li>
+        <li><a href="journey.html" class="nav-link nav-link-active">My Journey</a></li>
+        <li><a href="blog.html" class="nav-link">Work</a></li>
+        <li><a href="index.html#contact" class="btn btn-nav">Say Hello</a></li>
+      </ul>
+      <div class="nav-right">
+        <div class="theme-toggle-wrap">
+          <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark theme" aria-pressed="false">
+            <div class="knockout">
+              <div class="indicator--masked">
+                <div class="mask"></div>
+              </div>
+            </div>
+            <div class="indicator__liquid">
+              <div class="shadow"></div>
+              <div class="wrapper">
+                <div class="liquids">
+                  <div class="liquid__shadow"></div>
+                  <div class="liquid__track"></div>
+                </div>
+              </div>
+              <div class="cover">
+                <svg class="tgl-icon icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                <svg class="tgl-icon icon-sparkle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1l2 7h7l-5.5 4 2 7L12 15l-5.5 4 2-7L3 8h7z"/></svg>
+                <svg class="tgl-icon icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+              </div>
+            </div>
+          </button>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="nav-drawer" id="nav-drawer">
+      <ul>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#experience">Experience</a></li>
+        <li><a href="index.html#skills">Skills</a></li>
+        <li><a href="journey.html">My Journey</a></li>
+        <li><a href="blog.html">Work</a></li>
+        <li><a href="index.html#contact">Say Hello</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════════════════
+       JOURNEY HERO
+  ══════════════════════════════════════ -->
+  <section class="journey-hero">
+    <div class="hero-bg">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="dot-grid"></div>
+      <canvas class="sub-canvas" id="journey-canvas"></canvas>
+    </div>
+    <div class="container journey-hero-body">
+      <span class="section-label" style="margin-bottom:20px;display:inline-block;">My Story</span>
+      <h1 class="journey-hero-title">
+        <span class="hl">The</span>
+        <span class="hl hl-grad">Journey</span>
+      </h1>
+      <p class="journey-hero-sub">
+        From curiosity to conviction — a look at the experiences, choices, and lessons that shaped who I am as a product person.
+      </p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       CHAPTERS
+  ══════════════════════════════════════ -->
+  <div class="journey-chapters">
+
+    <!-- Chapter 1 -->
+    <section class="chapter" id="ch-1">
+      <div class="container">
+        <div class="chapter-grid">
+          <div class="chapter-sidebar reveal-left">
+            <div class="chapter-num">01</div>
+            <div class="chapter-line-v"></div>
+          </div>
+          <div class="chapter-content reveal-right">
+            <span class="chapter-label">The Beginning</span>
+            <h2 class="chapter-title">Lucknow to <span class="grad-text">Bengaluru</span></h2>
+            <div class="chapter-body">
+              <p>
+                I grew up in Lucknow, where I completed my schooling at <strong>St. Francis' College for Boys</strong> — one of the city's most respected institutions. Those years shaped a strong foundation in academics, discipline, and curiosity. I was always drawn to technology and the question of <em>how things work</em> — from software to systems to the products people use every day.
+              </p>
+              <p>
+                The decision to move to Bengaluru for university was the start of everything. It dropped me right into the heart of India's tech ecosystem, surrounded by builders, founders, and people who were genuinely passionate about creating things. That environment changed me.
+              </p>
+            </div>
+            <div class="chapter-highlight">
+              <i class="fas fa-quote-left"></i>
+              <blockquote>I didn't just want to study Computer Science — I wanted to build things with it. That distinction shaped every decision I made in university.</blockquote>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Chapter 2 -->
+    <section class="chapter chapter-alt" id="ch-2">
+      <div class="container">
+        <div class="chapter-grid">
+          <div class="chapter-sidebar reveal-left">
+            <div class="chapter-num">02</div>
+            <div class="chapter-line-v"></div>
+          </div>
+          <div class="chapter-content reveal-right">
+            <span class="chapter-label">University Years · 2021–2025</span>
+            <h2 class="chapter-title">PES University & <span class="grad-text">Everything I Built There</span></h2>
+            <div class="chapter-body">
+              <p>
+                PES University gave me far more than a Computer Science degree. I graduated in 2025 with a B.Tech in CSE, but the real education happened outside the classroom — in clubs, hackathons, events, and projects that pushed me well beyond my comfort zone.
+              </p>
+              <p>
+                I founded <strong>HoPES</strong>, the official media club of PES University, and grew it into one of the most active and successful clubs on campus — a team of over 150 members delivering 30+ projects. Simultaneously, I led <strong>Ninaada</strong>, the Indian Cultural Club, and served as Event Head for <strong>Chords '23</strong>, the university's music festival with 2,000+ attendees.
+              </p>
+              <p>
+                Across my four years, I contributed to 9 clubs, societies, and labs, organized 10+ events and hackathons, and served as Special Person of Contact for the university's cultural festival attended by over <strong>6,000 people</strong>. These weren't just line items on a resume — they were where I learned to lead, communicate, manage complexity, and build things people actually cared about.
+              </p>
+              <p>
+                On the technical side, I competed in hackathons consistently — finishing 1st in competitions with 150+ and 250+ participants, Top 4 among 250+, and Top 6 among 750+ participants. Each hackathon was a crash course in rapid product thinking, scoping under constraints, and shipping fast.
+              </p>
+            </div>
+
+            <div class="uni-highlights">
+              <div class="uni-card reveal-up">
+                <div class="uni-card-icon"><i class="fas fa-graduation-cap"></i></div>
+                <div>
+                  <h4>PES University, Bengaluru</h4>
+                  <span>B.Tech — Computer Science Engineering · 2021–2025</span>
+                </div>
+              </div>
+              <div class="uni-card reveal-up" data-delay="100">
+                <div class="uni-card-icon"><i class="fas fa-camera"></i></div>
+                <div>
+                  <h4>President & Founder — HoPES (Media Club)</h4>
+                  <span>150+ members · 30+ projects · PES University's leading media club</span>
+                </div>
+              </div>
+              <div class="uni-card reveal-up" data-delay="160">
+                <div class="uni-card-icon"><i class="fas fa-music"></i></div>
+                <div>
+                  <h4>Event Head — Chords '23 Music Festival</h4>
+                  <span>180-member team · 2,000+ attendees</span>
+                </div>
+              </div>
+              <div class="uni-card reveal-up" data-delay="220">
+                <div class="uni-card-icon"><i class="fas fa-trophy"></i></div>
+                <div>
+                  <h4>Hackathon Achievements</h4>
+                  <span>1st place (150+), 1st place (250+), Top 4 (250+), Top 6 (750+ participants)</span>
+                </div>
+              </div>
+              <div class="uni-card reveal-up" data-delay="280">
+                <div class="uni-card-icon"><i class="fas fa-star"></i></div>
+                <div>
+                  <h4>Co-Curricular Star Award</h4>
+                  <span>Awarded for exceptional leadership and contributions beyond academics</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Chapter 3 -->
+    <section class="chapter" id="ch-3">
+      <div class="container">
+        <div class="chapter-grid">
+          <div class="chapter-sidebar reveal-left">
+            <div class="chapter-num">03</div>
+            <div class="chapter-line-v"></div>
+          </div>
+          <div class="chapter-content reveal-right">
+            <span class="chapter-label">The Pivot</span>
+            <h2 class="chapter-title">From Engineering to <span class="grad-text">Product</span></h2>
+            <div class="chapter-body">
+              <p>
+                The shift toward product management wasn't sudden — it was the result of consistently finding myself drawn to the <em>why</em> behind the code, not just the <em>how</em>. While my peers were excited about algorithms, I was more interested in whether what we were building actually solved a real problem for a real person.
+              </p>
+              <p>
+                Running HoPES, leading large events, and working in cross-functional university environments gave me an early taste of what product work actually feels like — identifying needs, building solutions, managing stakeholders, and measuring outcomes. By the time I reached my final year, product management felt less like a career choice and more like an inevitability.
+              </p>
+              <p>
+                My internship at <strong>SolutionBuggy Consulting</strong> as a GenAI Software Developer bridged the technical and product worlds — I built and deployed AI-driven backend systems from architecture to production. That experience deepened my respect for engineers and gave me the technical vocabulary that would make me a far better PM.
+              </p>
+            </div>
+            <div class="chapter-highlight">
+              <i class="fas fa-quote-left"></i>
+              <blockquote>The best PMs I've admired weren't just strategic thinkers — they were deeply technical, deeply empathetic, and deeply obsessed with the problem. That's the PM I set out to become.</blockquote>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Chapter 4 -->
+    <section class="chapter chapter-alt" id="ch-4">
+      <div class="container">
+        <div class="chapter-grid">
+          <div class="chapter-sidebar reveal-left">
+            <div class="chapter-num">04</div>
+            <div class="chapter-line-v"></div>
+          </div>
+          <div class="chapter-content reveal-right">
+            <span class="chapter-label">Professional Chapter · 2025–2026</span>
+            <h2 class="chapter-title">Multiplier & <span class="grad-text">Global Scale</span></h2>
+            <div class="chapter-body">
+              <p>
+                Joining <strong>Multiplier Technologies</strong> as an Associate Product Manager was a defining chapter. Multiplier is a global employment platform that helps companies hire and pay talent across 150+ countries — the kind of infrastructure-level product that quietly powers global business.
+              </p>
+              <p>
+                I owned product initiatives across the invoicing and compliance domain — a high-stakes, high-complexity space where every decision touched real money, real regulations, and real people's livelihoods. My biggest initiative was streamlining the monthly invoicing workflow that processed <strong>$19M+ per month</strong> across 1,800+ invoices for 1,400+ companies. Using AI agents and workflow automation, we pushed the automation rate from ~92% to over 98%, saving 50+ hours of manual effort every single month.
+              </p>
+              <p>
+                I also built an AI-powered compliance monitoring system that tracked global policy changes across dozens of jurisdictions — reducing response time from <em>days to seconds</em>. Beyond automation, I worked on invoice anomaly detection, order form UX improvements, deposit refund automation, and expanding billing support for value-added services like insurance and legal advisory.
+              </p>
+              <p>
+                What Multiplier taught me most wasn't any single product skill — it was what it means to operate with urgency, rigor, and ownership in a fast-moving, globally distributed team.
+              </p>
+            </div>
+
+            <div class="impact-row">
+              <div class="impact-stat reveal-up">
+                <div class="impact-num">$19<span>M+</span></div>
+                <p>Monthly invoicing automated</p>
+              </div>
+              <div class="impact-stat reveal-up" data-delay="100">
+                <div class="impact-num">98<span>%+</span></div>
+                <p>Automation rate achieved</p>
+              </div>
+              <div class="impact-stat reveal-up" data-delay="200">
+                <div class="impact-num">50<span>+ hrs</span></div>
+                <p>Monthly effort saved</p>
+              </div>
+              <div class="impact-stat reveal-up" data-delay="300">
+                <div class="impact-num">150<span>+</span></div>
+                <p>Countries served</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Chapter 5: What's Next -->
+    <section class="chapter chapter-next" id="ch-5">
+      <div class="container">
+        <div class="chapter-grid">
+          <div class="chapter-sidebar reveal-left">
+            <div class="chapter-num grad-text">05</div>
+            <div class="chapter-line-v"></div>
+          </div>
+          <div class="chapter-content reveal-right">
+            <span class="chapter-label">Looking Ahead</span>
+            <h2 class="chapter-title">What's <span class="grad-text">Next</span></h2>
+            <div class="chapter-body">
+              <p>
+                I'm actively looking for my next product role — ideally at the intersection of AI, automation, and meaningful business problems. I'm drawn to companies that are building at the frontier: teams where product managers are expected to be technically fluent, data-literate, and genuinely close to users.
+              </p>
+              <p>
+                Beyond PM work, I continue to build HMC Studios and explore new AI-driven product ideas. The entrepreneurship itch doesn't go away — and I think that founder mindset is exactly what makes a great product manager.
+              </p>
+              <p>
+                If you're building something ambitious and think there's a fit — I'd love to talk.
+              </p>
+            </div>
+            <div class="next-cta-row">
+              <a href="index.html#contact" class="btn btn-primary">Let's Connect <i class="fas fa-arrow-right"></i></a>
+              <a href="blog.html" class="btn btn-ghost">See My Work</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ══════════════════════════════════════
+       VALUES
+  ══════════════════════════════════════ -->
+  <section class="section values">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-label">How I Work</span>
+        <h2 class="section-title">Principles I <span class="grad-text">Live By</span></h2>
+      </div>
+      <div class="values-grid">
+        <div class="value-card reveal-up" data-delay="0">
+          <div class="value-icon"><i class="fas fa-crosshairs"></i></div>
+          <h3>Start With the Problem</h3>
+          <p>Every feature, every decision begins with a clear understanding of the problem — not the solution. User pain is the only valid starting point.</p>
+        </div>
+        <div class="value-card reveal-up" data-delay="80">
+          <div class="value-icon"><i class="fas fa-robot"></i></div>
+          <h3>Leverage Technology Ruthlessly</h3>
+          <p>AI, automation, and engineering aren't just enablers — they're force multipliers. The best products today are built by PMs who understand what technology can do.</p>
+        </div>
+        <div class="value-card reveal-up" data-delay="160">
+          <div class="value-icon"><i class="fas fa-ship"></i></div>
+          <h3>Ship, Learn, Repeat</h3>
+          <p>Perfect is the enemy of shipped. I bias toward action, measure everything, and iterate fast. The market is always smarter than the whiteboard.</p>
+        </div>
+        <div class="value-card reveal-up" data-delay="240">
+          <div class="value-icon"><i class="fas fa-handshake"></i></div>
+          <h3>Earn Trust Through Craft</h3>
+          <p>Cross-functional alignment comes from genuine relationships, deep domain knowledge, and consistency — not authority. Trust is earned one interaction at a time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo">SJ</a>
+          <p>Associate Product Manager.<br>Building products that matter.</p>
+        </div>
+        <div class="footer-nav-cols">
+          <div class="footer-col">
+            <h4>Navigate</h4>
+            <ul>
+              <li><a href="index.html#about">About</a></li>
+              <li><a href="index.html#experience">Experience</a></li>
+              <li><a href="index.html#skills">Skills</a></li>
+              <li><a href="journey.html">My Journey</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Work</h4>
+            <ul>
+              <li><a href="blog.html">Case Studies</a></li>
+              <li><a href="blog.html">Articles</a></li>
+              <li><a href="blog.html">Projects</a></li>
+              <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Siddhant Jagdish. Crafted with intention.</p>
+        <a href="#" class="back-top" id="back-top"><i class="fas fa-arrow-up"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Liquid Glass SVG Filters -->
+  <svg style="display:none" aria-hidden="true">
+    <defs>
+      <filter id="liquid-glass" x="-10%" y="-10%" width="120%" height="120%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.75 0.75" numOctaves="4" seed="8" result="noise"/>
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="5" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+      <filter id="tgl-goo">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur"/>
+        <feColorMatrix in="blur" type="matrix"
+          values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -9"
+          result="goo"/>
+        <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+      </filter>
+      <filter id="tgl-remove-black" color-interpolation-filters="sRGB">
+        <feColorMatrix type="matrix"
+          values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  -255 -255 -255 0 1"
+          result="black-pixels"/>
+        <feMorphology in="black-pixels" operator="dilate" radius="0.5" result="smoothed"/>
+        <feComposite in="SourceGraphic" in2="smoothed" operator="out"/>
+      </filter>
+    </defs>
+  </svg>
+
+  <script src="https://unpkg.com/gsap@3.12.2/dist/gsap.min.js"></script>
+  <script src="https://unpkg.com/gsap@3.12.2/dist/ScrollTrigger.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

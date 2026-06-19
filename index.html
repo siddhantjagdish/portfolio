@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Siddhant Jagdish — APM | Entrepreneur | AI Builder</title>
+  <meta name="description" content="Siddhant Jagdish — Associate Product Manager, Entrepreneur, and AI & Automation Builder. CS grad from PES University, ex-Multiplier Technologies." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Prevent theme flash -->
+  <script>
+    (function(){var t=localStorage.getItem('sj-theme');if(t)document.documentElement.dataset.theme=t;})();
+  </script>
+</head>
+<body class="page-loading">
+
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+
+  <!-- Loader -->
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+      <div class="loader-monogram">SJ</div>
+      <div class="loader-bar"><div class="loader-fill"></div></div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">SJ</a>
+      <ul class="nav-links">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="journey.html" class="nav-link">My Journey</a></li>
+        <li><a href="blog.html" class="nav-link">Work</a></li>
+        <li><a href="#contact" class="btn btn-nav">Say Hello</a></li>
+      </ul>
+      <div class="nav-right">
+        <div class="theme-toggle-wrap">
+          <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark theme" aria-pressed="false">
+            <!-- Knockout layer creates a transparent pill-shaped hole in the track -->
+            <div class="knockout">
+              <div class="indicator--masked">
+                <div class="mask"></div>
+              </div>
+            </div>
+            <!-- Liquid goo pill that slides across the track -->
+            <div class="indicator__liquid">
+              <div class="shadow"></div>
+              <div class="wrapper">
+                <div class="liquids">
+                  <div class="liquid__shadow"></div>
+                  <div class="liquid__track"></div>
+                </div>
+              </div>
+              <div class="cover">
+                <svg class="tgl-icon icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                <svg class="tgl-icon icon-sparkle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1l2 7h7l-5.5 4 2 7L12 15l-5.5 4 2-7L3 8h7z"/></svg>
+                <svg class="tgl-icon icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+              </div>
+            </div>
+          </button>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="nav-drawer" id="nav-drawer">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="journey.html">My Journey</a></li>
+        <li><a href="blog.html">Work</a></li>
+        <li><a href="#contact">Say Hello</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════════════════
+       HERO
+  ══════════════════════════════════════ -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <canvas id="hero-canvas"></canvas>
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+      <div class="dot-grid"></div>
+    </div>
+
+    <div class="hero-body container">
+      <div class="hero-badge" id="h-badge">
+        <span class="pulse-dot"></span>
+        Open to new opportunities
+      </div>
+
+      <h1 class="hero-title" id="h-title">
+        <span class="hl">Siddhant</span>
+        <span class="hl hl-grad">Jagdish</span>
+      </h1>
+
+      <div class="hero-role" id="h-role">
+        <span id="typewriter"></span><span class="cursor-blink">|</span>
+      </div>
+
+      <p class="hero-desc" id="h-desc">
+        Product Manager &amp; builder working at the intersection of <em>product, engineering &amp; business</em> — taking ideas from 0→1 and driving measurable impact through technology.
+      </p>
+
+      <div class="hero-actions" id="h-actions">
+        <a href="blog.html" class="btn btn-primary">View My Work <i class="fas fa-arrow-right"></i></a>
+        <a href="#contact" class="btn btn-ghost">Get In Touch</a>
+      </div>
+
+      <div class="hero-stats" id="h-stats">
+        <div class="h-stat">
+          <div class="h-stat-num"><span>$</span><span class="counter" data-target="19">0</span><span>M+</span></div>
+          <p>Monthly Invoicing Automated</p>
+        </div>
+        <div class="h-stat-sep"></div>
+        <div class="h-stat">
+          <div class="h-stat-num"><span class="counter" data-target="100">0</span><span>+</span></div>
+          <p>Projects Delivered</p>
+        </div>
+        <div class="h-stat-sep"></div>
+        <div class="h-stat">
+          <div class="h-stat-num"><span class="counter" data-target="150">0</span><span>+</span></div>
+          <p>People Led</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ticker -->
+  <div class="ticker-wrap">
+    <div class="ticker-track">
+      <span>Product Strategy</span><i class="fas fa-circle"></i>
+      <span>AI Agents</span><i class="fas fa-circle"></i>
+      <span>Workflow Automation</span><i class="fas fa-circle"></i>
+      <span>0→1 Product Development</span><i class="fas fa-circle"></i>
+      <span>Python · FastAPI</span><i class="fas fa-circle"></i>
+      <span>Agile / Scrum</span><i class="fas fa-circle"></i>
+      <span>Data-Driven Decisions</span><i class="fas fa-circle"></i>
+      <span>Entrepreneurship</span><i class="fas fa-circle"></i>
+      <span>Cross-Functional Leadership</span><i class="fas fa-circle"></i>
+      <span>SQL · Metabase</span><i class="fas fa-circle"></i>
+      <span>Product Strategy</span><i class="fas fa-circle"></i>
+      <span>AI Agents</span><i class="fas fa-circle"></i>
+      <span>Workflow Automation</span><i class="fas fa-circle"></i>
+      <span>0→1 Product Development</span><i class="fas fa-circle"></i>
+      <span>Python · FastAPI</span><i class="fas fa-circle"></i>
+      <span>Agile / Scrum</span><i class="fas fa-circle"></i>
+      <span>Data-Driven Decisions</span><i class="fas fa-circle"></i>
+      <span>Entrepreneurship</span><i class="fas fa-circle"></i>
+      <span>Cross-Functional Leadership</span><i class="fas fa-circle"></i>
+      <span>SQL · Metabase</span><i class="fas fa-circle"></i>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       ABOUT
+  ══════════════════════════════════════ -->
+  <section class="section about" id="about">
+    <div class="container">
+      <div class="about-grid">
+
+        <div class="about-left reveal-left">
+          <div class="photo-frame">
+            <div class="photo-inner">
+              <div class="avatar-initials">SJ</div>
+              <p class="photo-label"><i class="fas fa-camera"></i> Add your photo here</p>
+            </div>
+            <div class="photo-glow"></div>
+          </div>
+          <div class="float-card fc-1">
+            <i class="fas fa-map-marker-alt"></i>
+            <div>
+              <span>Based in</span>
+              <strong>Bengaluru, India</strong>
+            </div>
+          </div>
+          <div class="float-card fc-2">
+            <i class="fas fa-briefcase"></i>
+            <div>
+              <span>Last Role</span>
+              <strong>APM @ Multiplier</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-right reveal-right">
+          <span class="section-label">About Me</span>
+          <h2 class="section-title">PM. Builder.<br><span class="grad-text">Entrepreneur.</span></h2>
+          <p class="body-text">
+            Hey, I'm Siddhant — a Computer Science grad from <strong>PES University</strong> working at the intersection of product, engineering, and business. Most recently I was an APM at <strong>Multiplier Technologies</strong>, where I automated $19M+/month in payroll operations and built AI-powered compliance systems serving 150+ countries.
+          </p>
+          <p class="body-text">
+            Alongside my product career, I founded <strong>HMC Studios</strong>, a media agency that scaled to seven-figure annual GMV and delivered 100+ projects for clients worldwide. I've also led 9 university clubs, managed teams of 150+ people, and placed in the top 4 at hackathons with 750+ participants.
+          </p>
+          <div class="traits">
+            <div class="trait"><i class="fas fa-robot"></i> AI & Automation</div>
+            <div class="trait"><i class="fas fa-rocket"></i> 0→1 Builder</div>
+            <div class="trait"><i class="fas fa-chart-line"></i> Data-Driven</div>
+            <div class="trait"><i class="fas fa-code"></i> Technical PM</div>
+            <div class="trait"><i class="fas fa-users"></i> Team Leader</div>
+            <div class="trait"><i class="fas fa-lightbulb"></i> Entrepreneur</div>
+          </div>
+          <div class="about-ctas">
+            <a href="journey.html" class="btn btn-primary">My Full Story <i class="fas fa-arrow-right"></i></a>
+            <a href="#" class="btn btn-outline"><i class="fas fa-download"></i> Resume</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       EXPERIENCE
+  ══════════════════════════════════════ -->
+  <section class="section experience" id="experience">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-label">Work Experience</span>
+        <h2 class="section-title">Where I've <span class="grad-text">Made an Impact</span></h2>
+      </div>
+
+      <div class="timeline">
+
+        <div class="tl-item reveal-up">
+          <div class="tl-line"></div>
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-header">
+              <div class="tl-company-info">
+                <div class="co-logo">M</div>
+                <div>
+                  <h3>Multiplier Technologies</h3>
+                  <span>Global Employment Platform · Series B</span>
+                </div>
+              </div>
+              <div class="tl-meta">
+                <span class="tl-role">Associate Product Manager</span>
+                <span class="tl-date"><i class="far fa-calendar-alt"></i> Feb 2025 – Mar 2026</span>
+              </div>
+            </div>
+            <div class="tl-body">
+              <p>Led product initiatives across the global payroll and compliance platform — automating financial operations, building AI systems, and improving customer experience for 1,400+ companies across 150+ countries.</p>
+              <ul class="tl-bullets">
+                <li><i class="fas fa-check-circle"></i> Automated $19M+/month invoicing workflows across 1,800+ invoices using AI agents — saving 50+ hours of manual effort monthly</li>
+                <li><i class="fas fa-check-circle"></i> Increased invoicing automation rate from ~92% to 98%+ through late payment fee support and variable pay funding</li>
+                <li><i class="fas fa-check-circle"></i> Built AI-powered compliance monitoring system reducing policy change response time from days to seconds</li>
+                <li><i class="fas fa-check-circle"></i> Improved Invoice Anomaly Detector accuracy from ~70% to 90%, significantly reducing false positives</li>
+                <li><i class="fas fa-check-circle"></i> Automated refund payments for client deposits — processing time reduced from 3+ days to minutes</li>
+                <li><i class="fas fa-check-circle"></i> Revamped order form UX, reducing unwanted submissions by 15%</li>
+              </ul>
+              <div class="tl-chips">
+                <span>AI Agents</span><span>Workflow Automation</span><span>B2B SaaS</span><span>HR Tech</span><span>Global Payroll</span><span>SQL</span><span>Jira</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tl-item reveal-up" data-delay="80">
+          <div class="tl-line"></div>
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-header">
+              <div class="tl-company-info">
+                <div class="co-logo" style="font-size:0.85rem;font-weight:800;">SB</div>
+                <div>
+                  <h3>SolutionBuggy Consulting</h3>
+                  <span>Technology Consulting</span>
+                </div>
+              </div>
+              <div class="tl-meta">
+                <span class="tl-role">Software Development Intern (GenAI)</span>
+                <span class="tl-date"><i class="far fa-calendar-alt"></i> Dec 2024 – Feb 2025</span>
+              </div>
+            </div>
+            <div class="tl-body">
+              <p>Built and scaled the company's core backend systems with a focus on AI-driven applications. Owned end-to-end development from architecture through deployment for production-ready systems.</p>
+              <div class="tl-chips">
+                <span>Python</span><span>FastAPI</span><span>AI Systems</span><span>Backend Development</span><span>APIs</span><span>Cloud</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tl-item reveal-up" data-delay="160">
+          <div class="tl-line"></div>
+          <div class="tl-dot" style="background: linear-gradient(135deg,#f59e0b,#ef4444);box-shadow:0 0 0 4px rgba(245,158,11,0.14);"></div>
+          <div class="tl-card">
+            <div class="tl-header">
+              <div class="tl-company-info">
+                <div class="co-logo" style="background:linear-gradient(135deg,#f59e0b,#ef4444);">H</div>
+                <div>
+                  <h3>HMC Studios</h3>
+                  <span>Media Production Agency · Founder</span>
+                </div>
+              </div>
+              <div class="tl-meta">
+                <span class="tl-role">Founder & CEO</span>
+                <span class="tl-date"><i class="far fa-calendar-alt"></i> 2024 – Present</span>
+              </div>
+            </div>
+            <div class="tl-body">
+              <p>Built and scaled a media production agency from 0→1 to seven-figure INR annual GMV within one year, working with national and international clients.</p>
+              <ul class="tl-bullets">
+                <li><i class="fas fa-check-circle"></i> Delivered 100+ projects across videography, photography, drone, VFX, and content production</li>
+                <li><i class="fas fa-check-circle"></i> Built operational systems for production, editing, client management, and delivery</li>
+                <li><i class="fas fa-check-circle"></i> Scaled to 7-figure INR annual GMV within the first year</li>
+              </ul>
+              <div class="tl-chips">
+                <span>Entrepreneurship</span><span>0→1</span><span>Videography</span><span>VFX</span><span>Operations</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       SKILLS
+  ══════════════════════════════════════ -->
+  <section class="section skills" id="skills">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-label">Capabilities</span>
+        <h2 class="section-title">Skills & <span class="grad-text">Toolkit</span></h2>
+      </div>
+
+      <div class="skills-grid">
+
+        <div class="skill-card reveal-up" data-delay="0">
+          <div class="skill-card-top">
+            <div class="skill-icon"><i class="fas fa-chess-knight"></i></div>
+            <h3>Product Management</h3>
+          </div>
+          <div class="skill-tags">
+            <span>Product Strategy</span><span>Roadmapping</span><span>PRDs</span>
+            <span>Agile / Scrum</span><span>0→1 Development</span><span>OKRs & KPIs</span>
+            <span>Experimentation</span><span>Cross-Functional Leadership</span>
+          </div>
+        </div>
+
+        <div class="skill-card reveal-up" data-delay="80">
+          <div class="skill-card-top">
+            <div class="skill-icon"><i class="fas fa-robot"></i></div>
+            <h3>AI & Automation</h3>
+          </div>
+          <div class="skill-tags">
+            <span>AI Agents</span><span>OpenAI API</span><span>Workflow Automation</span>
+            <span>Machine Learning</span><span>GenAI Applications</span><span>LLM Integrations</span>
+          </div>
+        </div>
+
+        <div class="skill-card reveal-up" data-delay="160">
+          <div class="skill-card-top">
+            <div class="skill-icon"><i class="fas fa-code"></i></div>
+            <h3>Engineering</h3>
+          </div>
+          <div class="skill-tags">
+            <span>Python</span><span>FastAPI</span><span>Flask</span><span>Java</span>
+            <span>Dart / Flutter</span><span>GraphQL</span><span>Firebase</span><span>GCP</span>
+          </div>
+        </div>
+
+        <div class="skill-card reveal-up" data-delay="240">
+          <div class="skill-card-top">
+            <div class="skill-icon"><i class="fas fa-chart-bar"></i></div>
+            <h3>Analytics & Data</h3>
+          </div>
+          <div class="skill-tags">
+            <span>SQL</span><span>Metabase</span><span>Elasticsearch</span>
+            <span>A/B Testing</span><span>Funnel Analysis</span><span>Excel</span><span>Postman</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       WORK / FEATURED
+  ══════════════════════════════════════ -->
+  <section class="section work" id="work">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-label">Portfolio</span>
+        <h2 class="section-title">Case Studies & <span class="grad-text">Projects</span></h2>
+        <p class="section-sub">A curated selection of product work, writing, and side projects.</p>
+      </div>
+
+      <div class="work-grid">
+
+        <div class="work-card work-card-featured reveal-up" data-delay="0">
+          <div class="work-img">
+            <div class="work-img-placeholder wip-1"><i class="fas fa-file-invoice-dollar"></i></div>
+            <div class="work-overlay">
+              <a href="blog.html" class="work-overlay-btn"><i class="fas fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+          <div class="work-body">
+            <div class="work-tags">
+              <span class="tag-cs">Case Study</span>
+              <span class="tag-plain">HR Tech</span>
+              <span class="tag-plain">AI Automation</span>
+            </div>
+            <h3>Automating $19M/month in Global Payroll — Multiplier</h3>
+            <p>How I used AI agents and workflow automation to streamline invoicing across 1,800+ invoices/month, push automation rates from 92% → 98%+, and save 50+ hours of manual work monthly.</p>
+            <a href="blog.html" class="work-link">Read Case Study <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="work-card reveal-up" data-delay="100">
+          <div class="work-img">
+            <div class="work-img-placeholder wip-2"><i class="fas fa-shield-halved"></i></div>
+            <div class="work-overlay">
+              <a href="blog.html" class="work-overlay-btn"><i class="fas fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+          <div class="work-body">
+            <div class="work-tags">
+              <span class="tag-cs">Case Study</span>
+              <span class="tag-plain">AI Compliance</span>
+            </div>
+            <h3>AI-Powered Global Compliance Monitoring</h3>
+            <p>Built a system that tracked policy changes across 150+ countries — cutting response time from days to seconds and eliminating manual monitoring entirely.</p>
+            <a href="blog.html" class="work-link">Read Case Study <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="work-card reveal-up" data-delay="200">
+          <div class="work-img">
+            <div class="work-img-placeholder wip-3"><i class="fas fa-camera"></i></div>
+            <div class="work-overlay">
+              <a href="blog.html" class="work-overlay-btn"><i class="fas fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+          <div class="work-body">
+            <div class="work-tags">
+              <span class="tag-proj">Venture</span>
+              <span class="tag-plain">Entrepreneurship</span>
+            </div>
+            <h3>HMC Studios — From 0 to 7-Figure GMV</h3>
+            <p>Founded a media production agency that scaled to ₹1Cr+ annual GMV in under a year, delivering 100+ projects for national and international clients.</p>
+            <a href="blog.html" class="work-link">Explore <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="work-footer reveal-up">
+        <a href="blog.html" class="btn btn-outline">See All Work <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       CONTACT
+  ══════════════════════════════════════ -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+
+        <div class="contact-left reveal-left">
+          <span class="section-label">Get In Touch</span>
+          <h2 class="section-title">Let's Build<br><span class="grad-text">Something Great</span></h2>
+          <p class="body-text">Whether it's a role, a collaboration, or just a good conversation about product — my inbox is always open.</p>
+
+          <div class="contact-links">
+            <a href="mailto:siddhantjagdish30@gmail.com" class="contact-link-row">
+              <div class="cl-icon"><i class="fas fa-envelope"></i></div>
+              <div>
+                <span class="cl-label">Email</span>
+                <span class="cl-val">siddhantjagdish30@gmail.com</span>
+              </div>
+            </a>
+            <a href="https://www.linkedin.com/in/siddhantjagdish" target="_blank" class="contact-link-row">
+              <div class="cl-icon"><i class="fab fa-linkedin"></i></div>
+              <div>
+                <span class="cl-label">LinkedIn</span>
+                <span class="cl-val">linkedin.com/in/siddhantjagdish</span>
+              </div>
+            </a>
+            <a href="tel:+916307656922" class="contact-link-row">
+              <div class="cl-icon"><i class="fas fa-phone"></i></div>
+              <div>
+                <span class="cl-label">Phone</span>
+                <span class="cl-val">+91 6307 656 922</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="socials">
+            <a href="https://www.linkedin.com/in/siddhantjagdish" target="_blank" class="social-btn" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/siddhantjagdish" target="_blank" class="social-btn" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="mailto:siddhantjagdish30@gmail.com" class="social-btn" title="Email"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+
+        <div class="contact-right reveal-right">
+          <div class="contact-form-card">
+            <form id="contact-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="c-name">Name</label>
+                  <input type="text" id="c-name" placeholder="Jane Smith" required />
+                </div>
+                <div class="form-group">
+                  <label for="c-email">Email</label>
+                  <input type="email" id="c-email" placeholder="jane@company.com" required />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="c-subject">Subject</label>
+                <input type="text" id="c-subject" placeholder="Let's work together" />
+              </div>
+              <div class="form-group">
+                <label for="c-msg">Message</label>
+                <textarea id="c-msg" rows="5" placeholder="Tell me about your opportunity or project..." required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary btn-full">
+                <span>Send Message</span>
+                <i class="fas fa-paper-plane"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#hero" class="footer-logo">SJ</a>
+          <p>Associate Product Manager.<br>Building products that matter.</p>
+        </div>
+        <div class="footer-nav-cols">
+          <div class="footer-col">
+            <h4>Navigate</h4>
+            <ul>
+              <li><a href="#about">About</a></li>
+              <li><a href="#experience">Experience</a></li>
+              <li><a href="#skills">Skills</a></li>
+              <li><a href="journey.html">My Journey</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Work</h4>
+            <ul>
+              <li><a href="blog.html">Case Studies</a></li>
+              <li><a href="blog.html">Articles</a></li>
+              <li><a href="blog.html">Projects</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Siddhant Jagdish. Crafted with intention.</p>
+        <a href="#hero" class="back-top" id="back-top"><i class="fas fa-arrow-up"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Liquid Glass SVG Filters -->
+  <svg style="display:none" aria-hidden="true">
+    <defs>
+      <filter id="liquid-glass" x="-10%" y="-10%" width="120%" height="120%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.75 0.75" numOctaves="4" seed="8" result="noise"/>
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="5" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+      <filter id="tgl-goo">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur"/>
+        <feColorMatrix in="blur" type="matrix"
+          values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -9"
+          result="goo"/>
+        <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+      </filter>
+      <filter id="tgl-remove-black" color-interpolation-filters="sRGB">
+        <feColorMatrix type="matrix"
+          values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  -255 -255 -255 0 1"
+          result="black-pixels"/>
+        <feMorphology in="black-pixels" operator="dilate" radius="0.5" result="smoothed"/>
+        <feComposite in="SourceGraphic" in2="smoothed" operator="out"/>
+      </filter>
+    </defs>
+  </svg>
+
+  <script src="https://unpkg.com/gsap@3.12.2/dist/gsap.min.js"></script>
+  <script src="https://unpkg.com/gsap@3.12.2/dist/ScrollTrigger.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
