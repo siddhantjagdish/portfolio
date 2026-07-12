@@ -469,20 +469,39 @@ function initScrollTriggers() {
 function initContactForm() {
   const form = document.getElementById('contact-form');
   if (!form) return;
-  form.addEventListener('submit', e => {
+  const btn = form.querySelector('button[type="submit"]');
+  const errorEl = document.getElementById('c-error');
+  const orig = btn.innerHTML;
+
+  form.addEventListener('submit', async e => {
     e.preventDefault();
-    window.trackEvent && window.trackEvent('contact_submit');
-    const btn = form.querySelector('button[type="submit"]');
-    const orig = btn.innerHTML;
-    btn.innerHTML = '<span>Sent! 🎉</span> <i class="fas fa-check"></i>';
-    btn.style.background = 'linear-gradient(135deg, #22c55e, #16a34a)';
+    if (errorEl) errorEl.hidden = true;
+    btn.innerHTML = '<span>Sending…</span>';
     btn.disabled = true;
-    setTimeout(() => {
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (!res.ok) throw new Error('Form endpoint returned ' + res.status);
+
+      window.trackEvent && window.trackEvent('contact_submit');
+      btn.innerHTML = '<span>Sent! 🎉</span> <i class="fas fa-check"></i>';
+      btn.style.background = 'linear-gradient(135deg, #22c55e, #16a34a)';
+      setTimeout(() => {
+        btn.innerHTML = orig;
+        btn.style.background = '';
+        btn.disabled = false;
+        form.reset();
+      }, 3500);
+    } catch (err) {
       btn.innerHTML = orig;
-      btn.style.background = '';
       btn.disabled = false;
-      form.reset();
-    }, 3500);
+      if (errorEl) errorEl.hidden = false;
+    }
   });
 }
 
