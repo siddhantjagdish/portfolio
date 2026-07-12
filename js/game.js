@@ -545,7 +545,7 @@
         <button class="game-end-btn" id="game-restart">↺ ${isWin ? 'Play again' : 'Try again'}</button>
         ${isWin
           ? '<p class="game-end-foot">You’ve reached the Potential Product.</p>'
-          : '<p class="game-end-hint">Land on the platforms — don’t fall off the bottom.</p>'}
+          : '<p class="game-end-hint">Land on the platforms, don’t fall off the bottom.</p>'}
       </div>`;
     overlay.appendChild(el);
     document.getElementById('game-restart').addEventListener('click', () => {
