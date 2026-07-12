@@ -2,6 +2,26 @@
    MAIN JAVASCRIPT — Siddhant Jagdish Portfolio
    ================================================ */
 
+/* ================================================
+   GOOGLE ANALYTICS 4  —  set GA_ID to your Measurement ID
+   ================================================ */
+var GA_ID = 'G-XXXXXXXXXX'; // ← replace with your GA4 Measurement ID (looks like G-ABC1234XYZ)
+(function () {
+  if (!GA_ID || GA_ID === 'G-XXXXXXXXXX') return; // stays inert until a real ID is set
+  var s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+  document.head.appendChild(s);
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function () { window.dataLayer.push(arguments); };
+  window.gtag('js', new Date());
+  window.gtag('config', GA_ID);
+})();
+/* Fire a custom event — safely no-ops until GA is configured above */
+window.trackEvent = function (name, params) {
+  if (typeof window.gtag === 'function') window.gtag('event', name, params || {});
+};
+
 /* ---------- GSAP Registration ---------- */
 if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
@@ -451,6 +471,7 @@ function initContactForm() {
   if (!form) return;
   form.addEventListener('submit', e => {
     e.preventDefault();
+    window.trackEvent && window.trackEvent('contact_submit');
     const btn = form.querySelector('button[type="submit"]');
     const orig = btn.innerHTML;
     btn.innerHTML = '<span>Sent! 🎉</span> <i class="fas fa-check"></i>';
@@ -754,6 +775,22 @@ function initThemeHint() {
 /* ================================================
    SCROLL PROGRESS BAR
    ================================================ */
+function initEventTracking() {
+  document.addEventListener('click', function (e) {
+    const el = e.target.closest('a, button');
+    if (!el) return;
+    const href = el.getAttribute('href') || '';
+    const text = (el.textContent || '').trim().toLowerCase();
+    if (href.indexOf('#contact') !== -1 || text.includes('say hello') || text.includes('get in touch')) {
+      window.trackEvent('contact_click');
+    } else if (text.includes('resume')) {
+      window.trackEvent('resume_click');
+    } else if (href.indexOf('case-') !== -1) {
+      window.trackEvent('case_study_open', { case_study: href });
+    }
+  }, true);
+}
+
 function initScrollProgress() {
   const bar = document.getElementById('scroll-progress');
   if (!bar) return;
@@ -795,6 +832,7 @@ function initAll() {
   initCertToggles();
   initThemeHint();
   initScrollProgress();
+  initEventTracking();
 
   /* Page-specific hero animations */
   if (document.getElementById('hero')) {

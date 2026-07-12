@@ -100,6 +100,7 @@
   /* ── Activate ──────────────────────────────── */
   function activate() {
     active = true;
+    if (window.trackEvent) window.trackEvent('game_mode_started');
     gameBtn.textContent = '✕ EXIT';
     gameBtn.classList.add('active');
 
