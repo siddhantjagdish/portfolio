@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>I Built a Startup Idea in College, Then Went Back to Kill It — Case Study | Siddhant Jagdish</title>
+  <meta name="description" content="Reopening my old college startup idea — a peer-to-peer scooter-rental app called Zahav — and stress-testing it with a PM's eyes. Why the best output was a well-reasoned no." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <meta name="theme-color" content="#6366f1" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Siddhant Jagdish" />
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Prevent theme flash -->
+  <script>
+    (function(){var t=localStorage.getItem('sj-theme')||'purple-light';document.documentElement.dataset.theme=t;})();
+  </script>
+</head>
+<body class="page-loading">
+
+  <!-- Ambient animated backdrop (sits behind all content) -->
+  <div class="ambient" aria-hidden="true">
+    <div class="amb-orb amb-orb--1"></div>
+    <div class="amb-orb amb-orb--2"></div>
+    <div class="amb-orb amb-orb--3"></div>
+    <div class="amb-dotgrid"></div>
+    <canvas class="amb-particles"></canvas>
+  </div>
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+
+  <!-- Scroll progress bar (top edge of the navbar) -->
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+      <div class="loader-monogram">SJ</div>
+      <div class="loader-bar"><div class="loader-fill"></div></div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">SJ</a>
+      <ul class="nav-links">
+        <li><a href="index.html#about" class="nav-link">About</a></li>
+        <li><a href="index.html#experience" class="nav-link">Experience</a></li>
+        <li><a href="skills.html" class="nav-link">Skills</a></li>
+        <li><a href="journey.html" class="nav-link">My Journey</a></li>
+        <li><a href="blog.html" class="nav-link nav-link-active">Work</a></li>
+        <li><a href="index.html#contact" class="btn btn-nav">Say Hello</a></li>
+      </ul>
+      <div class="nav-right">
+        <div class="theme-toggle-wrap">
+          <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark theme" aria-pressed="false">
+            <div class="knockout">
+              <div class="indicator--masked">
+                <div class="mask"></div>
+              </div>
+            </div>
+            <div class="indicator__liquid">
+              <div class="shadow"></div>
+              <div class="wrapper">
+                <div class="liquids">
+                  <div class="liquid__shadow"></div>
+                  <div class="liquid__track"></div>
+                </div>
+              </div>
+              <div class="cover">
+                <svg class="tgl-icon icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                <svg class="tgl-icon icon-sparkle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1l2 7h7l-5.5 4 2 7L12 15l-5.5 4 2-7L3 8h7z"/></svg>
+                <svg class="tgl-icon icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+              </div>
+            </div>
+          </button>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="nav-drawer" id="nav-drawer">
+      <ul>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#experience">Experience</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="journey.html">My Journey</a></li>
+        <li><a href="blog.html">Work</a></li>
+        <li><a href="index.html#contact">Say Hello</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════════════════
+       CASE STUDY ARTICLE
+  ══════════════════════════════════════ -->
+  <section class="cs-wrap">
+    <article class="cs-article">
+
+      <!-- Hero -->
+      <header class="cs-hero reveal-up">
+        <a class="cs-back" href="blog.html"><i class="fas fa-arrow-left"></i> Back to Work</a>
+        <div class="cs-tags">
+          <span class="tag-cs">Case Study</span>
+          <span class="tag-plain">Product Teardown</span>
+          <span class="tag-plain">0&rarr;1 Thinking</span>
+        </div>
+        <h1 class="cs-title">I Built a Startup Idea in College. Years Later, I Went Back to Kill It.</h1>
+        <p class="cs-dek">I reopened my old college app — a peer-to-peer scooter-rental idea called Zahav — and stress-tested it as a PM, with no mercy. It didn't survive. Here's exactly where it broke, and why a well-reasoned "no" was the best thing it ever produced.</p>
+        <div class="cs-meta">
+          <span class="cs-author"><span class="cs-avatar">SJ</span> Siddhant Jagdish</span>
+          <span class="cs-meta-sep"></span>
+          <span><i class="far fa-clock"></i> 8 min read</span>
+          <span class="cs-meta-sep"></span>
+          <span><i class="far fa-calendar"></i> 2026</span>
+        </div>
+      </header>
+
+      <!-- Cover image — replace .cs-figure-ph with <img src="images/..." alt="..."> when ready -->
+      <figure class="cs-figure cs-figure--empty cs-cover reveal-up">
+        <div class="cs-figure-ph">
+          <i class="far fa-image"></i>
+          <span>Cover — the original Zahav app: screens, flows, and logo. Add later.</span>
+        </div>
+      </figure>
+
+      <div class="cs-body">
+
+        <div class="cs-section reveal-up">
+          <p class="cs-lead">Back in college I had an idea. The kind you get at midnight, convinced you have found the gap nobody else saw. Made a whole prototype for it. Screens, flows, a logo, the works. Called it what I thought I had struck — Zahav ("Gold" in Hebrew).</p>
+          <p>I never got to building the thing and it remained a college project. Specifically, it came out of an entrepreneurship elective that let us pick any startup idea and build it out as coursework. Which, looking back, was a pretty good deal. Two birds one stone — I got to actually think through an idea I had, and also get the assignment done. But once the course ended with my team bagging the best project award, the idea stuck with me for a couple of years, sitting in that same old Figma file like a photo you forgot you took.</p>
+          <p>Last week I stumbled upon that file again, except this time I wasn't looking at it as a hopeless 20-something with a cool idea. I was grateful enough to look at it as a product manager, someone who gets paid to ask the annoying questions.</p>
+          <p>So I decided to take my own college idea and stress test it the way I would tear apart any other product today. No mercy — let's see if it survives.</p>
+        </div>
+
+        <div class="cs-section reveal-up">
+          <h2>The idea</h2>
+          <p>Before the pitch, a few numbers to set the scene, because these are the reason the itch never really went away. India has somewhere around 260 to 270 million registered two-wheelers on its roads today, more per person than almost any other country on earth. My own city, Bengaluru, crossed 7.5 million of them by itself as of late 2024, which is more two-wheelers sitting in one city than most entire countries own. And on the demand side, people are clearly willing to pay to move around on two wheels — Rapido alone is pulling somewhere around 60 to 70 million monthly active users and several million rides a day. That is a massive amount of metal and rubber sitting idle for most of the day, next to a genuinely massive number of people already paying strangers to ride them around on two wheels. That gap is what the idea was trying to sit inside of.</p>
+          <p>Here is the pitch.</p>
+          <p>You own a scooter/bike, and it sits at home doing nothing for most of the day while you are at work. A depreciating asset, spending the majority of its day in a parking spot. So what if you could just make it available and let someone nearby use it for a few hours, they return it once they're back, and you make a little money off it. Your bike works while you do not. Kinda like asking your friend in the hostel if you can borrow their scooter and paying them with some extra fuel in the tank.</p>
+          <p>There would be two kinds of people on the app. Lenders, who own the vehicle, and riders, who borrow it. We as a company take a small cut on every ride. And because there is no driver in the middle, no Rapido guy you have to pay out, this is, in theory, about the cheapest way to get around a city exactly from point A to B that could possibly exist.</p>
+          <p>College me thought this was genius, and to be fair, part of it kind of is — at least at the surface level.</p>
+
+          <!-- Inline figure — swap for a real screenshot later -->
+          <figure class="cs-figure cs-figure--empty">
+            <div class="cs-figure-ph">
+              <i class="fas fa-mobile-screen-button"></i>
+              <span>Zahav's rider and lender flows from the original Figma. Add screens later.</span>
+            </div>
+          </figure>
+        </div>
+
+        <div class="cs-section reveal-up">
+          <h2>The part that is actually good</h2>
+          <p>Let me be fair here, because I did get a few things right.</p>
+          <p>The core insight does hold up. Personal vehicles genuinely do sit idle most of the day, and that slack is a potentially solvable problem.</p>
+          <p>The cost logic holds up too. In any bike taxi (one of the cheapest modes of precise transport available today), the biggest cost is paying the human who drives, so if you take that person out, the cost drops. On that specific point college me was correct, and this whole idea sits in a category called "P2P rental" — basically people renting stuff directly from other people instead of from a company. Think Turo for cars in the US. Turo, Bounce and Yulu had already shown that both P2P rental and cheap street-level two-wheelers can work. So I was not inventing something out of thin air, I was remixing a couple of things that already worked.</p>
+          <p>There is another pro I had actually thought about back then, which is safety. Because the rider is riding the bike themselves, there is no stranger involved at all. No random driver you have to trust, and no unknown person you are physically stuck with for the length of a trip. That matters for everyone, but it matters a lot more for women. A big reason a lot of women avoid bike taxis is the discomfort of having to sit behind a man they have never met, and Zahav aimed to remove that person from the equation entirely. You turn up, unlock a bike, you ride it yourself, and nobody else is part of the journey. In a country where that specific anxiety is a real and daily thing, "no stranger in the loop" isn't just a small feature, but arguably one of the stronger things the model has going for it.</p>
+          <p>Well, those are a handful of strengths. And yet still, it was not enough, for the reasons below.</p>
+        </div>
+
+        <div class="cs-section reveal-up">
+          <h2>Where it all breaks</h2>
+          <p><strong>Well, for one, it is kinda illegal by design as per today's regulations.</strong> In India a privately registered vehicle, a normal white number plate scooter, cannot legally be rented out for money, because renting needs commercial registration and a handful of permits. So the whole heart of my idea, a regular person lending out their own bike for cash, runs straight into a wall, and it isn't a gray area situation, but a hard no. It is also precisely why Bounce and Yulu drifted toward owning their own fleets instead of using people's personal bikes, which means I had unknowingly designed the exact model the market learned does not work legally.</p>
+          <p><strong>Two, the return trip voids the "cheapest transport" claim.</strong> If you think it through, the rider has to go get the bike from the lender's spot and then bring it all the way back there when they are done, which makes it a roundtrip. A Rapido is one way, you hop off and leave it. So Zahav is not really "get me from A to B cheap," it is closer to "rent a bike for a planned errand and bring it back," which is a different product for a different user, possibly with a way smaller PMF. More like a micro-rental than a transport service.</p>
+          <p><strong>Three, nobody wants to hand a stranger the bike they're gonna need tomorrow.</strong> A rental company can afford to shrug off a scratched vehicle, but a normal person lending their only scooter, the one they need for work the next morning, cannot. Who pays if it gets damaged, whose insurance covers it, what if it just never comes back? In India, for personal P2P vehicles, none of these have clean answers, and every unanswered one of them is a reason a sane person just keeps their bike at home.</p>
+          <p><strong>Four, it needs some hardware.</strong> For the whole "make it available while I am at work" thing to work without you physically handing over keys, every bike needs a smart lock and some IoT on it, which is the expensive stuff Bounce and Yulu burned crores on. My little app was quietly a hardware and operations nightmare.</p>
+          <p><strong>Five, the chicken and egg problem, but worse.</strong> Every marketplace has the empty-on-day-one issue, but mine was nastier because both sides have to be in the same tiny area at the same time. Your idle bike from 9 to 6 only matters if someone needs a bike from 9 to 6 basically next door, so you need pretty crazy density before it feels alive at all.</p>
+        </div>
+
+        <div class="cs-section reveal-up">
+          <h2>The math does not show much love either</h2>
+          <p>Here is some quick napkin math. Say a rider pays around 40 rupees for a short hop, nice and cheap, and we take 20 percent of that, so about 8 rupees. Out of those 8 rupees comes payments, insurance, hardware wear, support, and the cost of acquiring both a lender and a rider.</p>
+          <p>You can see the trap forming. The exact thing that makes it cheap for the rider also makes each commission tiny, so thin money per ride only works at genuinely crazy volume, and the density problem from earlier is what makes that volume so hard to reach. The model needs scale just to breathe and then fights uphill the whole way there, which is a rough spot to be starting from.</p>
+        </div>
+
+        <div class="cs-section reveal-up">
+          <h2>The decision</h2>
+          <p>Here is the thing I understand now that I did not in college. Back then the question in my head was whether I could build this, but that was never really the interesting question, because you can build almost anything. The question that actually matters is what would have to be true for this to be worth building.</p>
+          <p>For Zahav, a few things all had to be true at the same time. There had to be a legal way for regular people to rent out their bikes. The product had to pick one job and win it instead of straddling two and winning neither. And the per ride money had to survive insurance and hardware and acquisition costs at a density I could actually reach.</p>
+        </div>
+
+        <div class="cs-section reveal-up">
+          <h2>What actually changed</h2>
+          <p>A good insight and a good business are not the same thing, and mixing them up is how people waste years of their lives. The best output of this entire project, and the one I am actually proud of, is a well-reasoned no.</p>
+          <p><strong>Zahav never launched, and it probably never will. But going back to it made me a slightly better PM in hindsight, which is not a bad return on a college project that only ever existed as a set of screens.</strong></p>
+        </div>
+
+      </div>
+    </article>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       CTA
+  ══════════════════════════════════════ -->
+  <section class="blog-cta-section">
+    <div class="container">
+      <div class="blog-cta-inner reveal-up">
+        <h2>Want to collaborate<br>or have a conversation?</h2>
+        <p>I'm always open to discussing product ideas, writing opportunities, or interesting problems worth solving.</p>
+        <a href="index.html#contact" class="btn btn-primary">Get In Touch <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo">SJ</a>
+          <p>Associate Product Manager.<br>Building products that matter.</p>
+        </div>
+        <div class="footer-nav-cols">
+          <div class="footer-col">
+            <h4>Navigate</h4>
+            <ul>
+              <li><a href="index.html#about">About</a></li>
+              <li><a href="index.html#experience">Experience</a></li>
+              <li><a href="skills.html">Skills</a></li>
+              <li><a href="journey.html">My Journey</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Work</h4>
+            <ul>
+              <li><a href="blog.html">Case Studies</a></li>
+              <li><a href="blog.html">Articles</a></li>
+              <li><a href="blog.html">Projects</a></li>
+              <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Siddhant Jagdish. Crafted with intention.</p>
+        <a href="#" class="back-top" id="back-top"><i class="fas fa-arrow-up"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Liquid Glass SVG Filters -->
+  <svg style="display:none" aria-hidden="true">
+    <defs>
+      <filter id="liquid-glass" x="-10%" y="-10%" width="120%" height="120%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.75 0.75" numOctaves="4" seed="8" result="noise"/>
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="5" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+      <filter id="tgl-goo">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur"/>
+        <feColorMatrix in="blur" type="matrix"
+          values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -9"
+          result="goo"/>
+        <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+      </filter>
+      <filter id="tgl-remove-black" color-interpolation-filters="sRGB">
+        <feColorMatrix type="matrix"
+          values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  -255 -255 -255 0 1"
+          result="black-pixels"/>
+        <feMorphology in="black-pixels" operator="dilate" radius="0.5" result="smoothed"/>
+        <feComposite in="SourceGraphic" in2="smoothed" operator="out"/>
+      </filter>
+    </defs>
+  </svg>
+
+  <script src="https://unpkg.com/gsap@3.12.2/dist/gsap.min.js"></script>
+  <script src="https://unpkg.com/gsap@3.12.2/dist/ScrollTrigger.min.js"></script>
+  <script src="js/main.js"></script>
+  <!-- Vercel Web Analytics — remember to enable "Analytics" in the Vercel dashboard -->
+  <script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

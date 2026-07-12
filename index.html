@@ -7,15 +7,28 @@
   <meta name="description" content="Siddhant Jagdish — Associate Product Manager, Entrepreneur, and AI & Automation Builder. CS grad from PES University, ex-Multiplier Technologies." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <meta name="theme-color" content="#6366f1" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Siddhant Jagdish" />
   <link rel="stylesheet" href="css/style.css" />
   <!-- Prevent theme flash -->
   <script>
-    (function(){var t=localStorage.getItem('sj-theme');if(t)document.documentElement.dataset.theme=t;})();
+    (function(){var t=localStorage.getItem('sj-theme')||'purple-light';document.documentElement.dataset.theme=t;})();
   </script>
 </head>
 <body class="page-loading">
+
+  <!-- Ambient animated backdrop (sits behind all content) -->
+  <div class="ambient" aria-hidden="true">
+    <div class="amb-orb amb-orb--1"></div>
+    <div class="amb-orb amb-orb--2"></div>
+    <div class="amb-orb amb-orb--3"></div>
+    <div class="amb-dotgrid"></div>
+    <canvas class="amb-particles"></canvas>
+  </div>
 
   <!-- Custom Cursor -->
   <div class="cursor" id="cursor"></div>
@@ -36,7 +49,7 @@
       <ul class="nav-links">
         <li><a href="#about" class="nav-link">About</a></li>
         <li><a href="#experience" class="nav-link">Experience</a></li>
-        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="skills.html" class="nav-link">Skills</a></li>
         <li><a href="journey.html" class="nav-link">My Journey</a></li>
         <li><a href="blog.html" class="nav-link">Work</a></li>
         <li><a href="#contact" class="btn btn-nav">Say Hello</a></li>
@@ -76,7 +89,7 @@
       <ul>
         <li><a href="#about">About</a></li>
         <li><a href="#experience">Experience</a></li>
-        <li><a href="#skills">Skills</a></li>
+        <li><a href="skills.html">Skills</a></li>
         <li><a href="journey.html">My Journey</a></li>
         <li><a href="blog.html">Work</a></li>
         <li><a href="#contact">Say Hello</a></li>
@@ -112,7 +125,7 @@
       </div>
 
       <p class="hero-desc" id="h-desc">
-        Product Manager &amp; builder working at the intersection of <em>product, engineering &amp; business</em> — taking ideas from 0→1 and driving measurable impact through technology.
+        Product Manager with a background in FinTech, working at the intersection of <em>product, engineering &amp; AI.</em> I like taking ideas from 0→1 and building products that make a difference.
       </p>
 
       <div class="hero-actions" id="h-actions">
@@ -139,32 +152,6 @@
     </div>
   </section>
 
-  <!-- Ticker -->
-  <div class="ticker-wrap">
-    <div class="ticker-track">
-      <span>Product Strategy</span><i class="fas fa-circle"></i>
-      <span>AI Agents</span><i class="fas fa-circle"></i>
-      <span>Workflow Automation</span><i class="fas fa-circle"></i>
-      <span>0→1 Product Development</span><i class="fas fa-circle"></i>
-      <span>Python · FastAPI</span><i class="fas fa-circle"></i>
-      <span>Agile / Scrum</span><i class="fas fa-circle"></i>
-      <span>Data-Driven Decisions</span><i class="fas fa-circle"></i>
-      <span>Entrepreneurship</span><i class="fas fa-circle"></i>
-      <span>Cross-Functional Leadership</span><i class="fas fa-circle"></i>
-      <span>SQL · Metabase</span><i class="fas fa-circle"></i>
-      <span>Product Strategy</span><i class="fas fa-circle"></i>
-      <span>AI Agents</span><i class="fas fa-circle"></i>
-      <span>Workflow Automation</span><i class="fas fa-circle"></i>
-      <span>0→1 Product Development</span><i class="fas fa-circle"></i>
-      <span>Python · FastAPI</span><i class="fas fa-circle"></i>
-      <span>Agile / Scrum</span><i class="fas fa-circle"></i>
-      <span>Data-Driven Decisions</span><i class="fas fa-circle"></i>
-      <span>Entrepreneurship</span><i class="fas fa-circle"></i>
-      <span>Cross-Functional Leadership</span><i class="fas fa-circle"></i>
-      <span>SQL · Metabase</span><i class="fas fa-circle"></i>
-    </div>
-  </div>
-
   <!-- ══════════════════════════════════════
        ABOUT
   ══════════════════════════════════════ -->
@@ -175,6 +162,10 @@
         <div class="about-left reveal-left">
           <div class="photo-frame">
             <div class="photo-inner">
+              <!-- Drop your photo in the /images folder as profile.jpg.
+                   If it's missing, the placeholder below shows instead. -->
+              <img src="images/profile.jpeg" alt="Siddhant Jagdish" class="photo-img"
+                   onerror="this.remove()" />
               <div class="avatar-initials">SJ</div>
               <p class="photo-label"><i class="fas fa-camera"></i> Add your photo here</p>
             </div>
@@ -200,10 +191,10 @@
           <span class="section-label">About Me</span>
           <h2 class="section-title">PM. Builder.<br><span class="grad-text">Entrepreneur.</span></h2>
           <p class="body-text">
-            Hey, I'm Siddhant — a Computer Science grad from <strong>PES University</strong> working at the intersection of product, engineering, and business. Most recently I was an APM at <strong>Multiplier Technologies</strong>, where I automated $19M+/month in payroll operations and built AI-powered compliance systems serving 150+ countries.
+            Hey, I'm Siddhant, a Computer Science grad from <strong>PES University</strong> working at the intersection of product, engineering, and AI. Most recently I was an APM at <strong>Multiplier Technologies</strong>, where I owned invoicing infrastructure automating $19M+/month in payroll operations and built AI-powered compliance systems for 150+ countries.
           </p>
           <p class="body-text">
-            Alongside my product career, I founded <strong>HMC Studios</strong>, a media agency that scaled to seven-figure annual GMV and delivered 100+ projects for clients worldwide. I've also led 9 university clubs, managed teams of 150+ people, and placed in the top 4 at hackathons with 750+ participants.
+            Alongside my product career, I co-founded <strong>HMC Studios</strong>, a media agency that scaled to seven-figure INR annual GMV, working with artists and events like <strong>Linkin Park</strong>, <strong>Calvin Harris</strong>, and <strong>Lollapalooza India</strong>. I've also led university fests and clubs, managed teams of 150+ people, and placed podium at hackathons.
           </p>
           <div class="traits">
             <div class="trait"><i class="fas fa-robot"></i> AI & Automation</div>
@@ -323,67 +314,6 @@
                 <span>Entrepreneurship</span><span>0→1</span><span>Videography</span><span>VFX</span><span>Operations</span>
               </div>
             </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════
-       SKILLS
-  ══════════════════════════════════════ -->
-  <section class="section skills" id="skills">
-    <div class="container">
-      <div class="section-header reveal-up">
-        <span class="section-label">Capabilities</span>
-        <h2 class="section-title">Skills & <span class="grad-text">Toolkit</span></h2>
-      </div>
-
-      <div class="skills-grid">
-
-        <div class="skill-card reveal-up" data-delay="0">
-          <div class="skill-card-top">
-            <div class="skill-icon"><i class="fas fa-chess-knight"></i></div>
-            <h3>Product Management</h3>
-          </div>
-          <div class="skill-tags">
-            <span>Product Strategy</span><span>Roadmapping</span><span>PRDs</span>
-            <span>Agile / Scrum</span><span>0→1 Development</span><span>OKRs & KPIs</span>
-            <span>Experimentation</span><span>Cross-Functional Leadership</span>
-          </div>
-        </div>
-
-        <div class="skill-card reveal-up" data-delay="80">
-          <div class="skill-card-top">
-            <div class="skill-icon"><i class="fas fa-robot"></i></div>
-            <h3>AI & Automation</h3>
-          </div>
-          <div class="skill-tags">
-            <span>AI Agents</span><span>OpenAI API</span><span>Workflow Automation</span>
-            <span>Machine Learning</span><span>GenAI Applications</span><span>LLM Integrations</span>
-          </div>
-        </div>
-
-        <div class="skill-card reveal-up" data-delay="160">
-          <div class="skill-card-top">
-            <div class="skill-icon"><i class="fas fa-code"></i></div>
-            <h3>Engineering</h3>
-          </div>
-          <div class="skill-tags">
-            <span>Python</span><span>FastAPI</span><span>Flask</span><span>Java</span>
-            <span>Dart / Flutter</span><span>GraphQL</span><span>Firebase</span><span>GCP</span>
-          </div>
-        </div>
-
-        <div class="skill-card reveal-up" data-delay="240">
-          <div class="skill-card-top">
-            <div class="skill-icon"><i class="fas fa-chart-bar"></i></div>
-            <h3>Analytics & Data</h3>
-          </div>
-          <div class="skill-tags">
-            <span>SQL</span><span>Metabase</span><span>Elasticsearch</span>
-            <span>A/B Testing</span><span>Funnel Analysis</span><span>Excel</span><span>Postman</span>
           </div>
         </div>
 
@@ -559,7 +489,7 @@
             <ul>
               <li><a href="#about">About</a></li>
               <li><a href="#experience">Experience</a></li>
-              <li><a href="#skills">Skills</a></li>
+              <li><a href="skills.html">Skills</a></li>
               <li><a href="journey.html">My Journey</a></li>
             </ul>
           </div>
@@ -608,4 +538,7 @@
   <script src="https://unpkg.com/gsap@3.12.2/dist/gsap.min.js"></script>
   <script src="https://unpkg.com/gsap@3.12.2/dist/ScrollTrigger.min.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/game.js"></script>
+  <!-- Vercel Web Analytics — remember to enable "Analytics" in the Vercel dashboard -->
+  <script defer src="/_vercel/insights/script.js"></script>
 </body>

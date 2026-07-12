@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skills &amp; Credentials — Siddhant Jagdish</title>
+  <meta name="description" content="The full toolkit behind Siddhant Jagdish — product, AI, engineering and data skills, certifications, and recognition." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <meta name="theme-color" content="#6366f1" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Siddhant Jagdish" />
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Prevent theme flash -->
+  <script>
+    (function(){var t=localStorage.getItem('sj-theme')||'purple-light';document.documentElement.dataset.theme=t;})();
+  </script>
+</head>
+<body class="page-loading">
+
+  <!-- Ambient animated backdrop (sits behind all content) -->
+  <div class="ambient" aria-hidden="true">
+    <div class="amb-orb amb-orb--1"></div>
+    <div class="amb-orb amb-orb--2"></div>
+    <div class="amb-orb amb-orb--3"></div>
+    <div class="amb-dotgrid"></div>
+    <canvas class="amb-particles"></canvas>
+  </div>
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+      <div class="loader-monogram">SJ</div>
+      <div class="loader-bar"><div class="loader-fill"></div></div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">SJ</a>
+      <ul class="nav-links">
+        <li><a href="index.html#about" class="nav-link">About</a></li>
+        <li><a href="index.html#experience" class="nav-link">Experience</a></li>
+        <li><a href="skills.html" class="nav-link nav-link-active">Skills</a></li>
+        <li><a href="journey.html" class="nav-link">My Journey</a></li>
+        <li><a href="blog.html" class="nav-link">Work</a></li>
+        <li><a href="index.html#contact" class="btn btn-nav">Say Hello</a></li>
+      </ul>
+      <div class="nav-right">
+        <div class="theme-toggle-wrap">
+          <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark theme" aria-pressed="false">
+            <div class="knockout">
+              <div class="indicator--masked">
+                <div class="mask"></div>
+              </div>
+            </div>
+            <div class="indicator__liquid">
+              <div class="shadow"></div>
+              <div class="wrapper">
+                <div class="liquids">
+                  <div class="liquid__shadow"></div>
+                  <div class="liquid__track"></div>
+                </div>
+              </div>
+              <div class="cover">
+                <svg class="tgl-icon icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                <svg class="tgl-icon icon-sparkle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1l2 7h7l-5.5 4 2 7L12 15l-5.5 4 2-7L3 8h7z"/></svg>
+                <svg class="tgl-icon icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+              </div>
+            </div>
+          </button>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="nav-drawer" id="nav-drawer">
+      <ul>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#experience">Experience</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="journey.html">My Journey</a></li>
+        <li><a href="blog.html">Work</a></li>
+        <li><a href="index.html#contact">Say Hello</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════════════════
+       HERO
+  ══════════════════════════════════════ -->
+  <section class="sc-hero">
+    <div class="hero-bg">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+      <div class="dot-grid"></div>
+      <canvas class="sub-canvas" id="skills-canvas"></canvas>
+    </div>
+    <div class="container sc-hero-body">
+      <span class="section-label" style="margin-bottom:20px;display:inline-block;">Capabilities &amp; Credentials</span>
+      <h1 class="sc-hero-title">
+        <span class="hl">The Full</span>
+        <span class="hl hl-grad">Toolkit</span>
+      </h1>
+      <p class="sc-hero-sub">
+        The skills I build with, the certifications that sharpened them, and the work that earned a little recognition along the way. Hover a skill to see where it's been put to work.
+      </p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       SKILLS CONSTELLATION
+  ══════════════════════════════════════ -->
+  <section class="section sc-skills" id="skills">
+    <!-- ambient floating nodes -->
+    <span class="sc-node" style="--nx:8%;  --ny:18%; --ndur:11s; --nd:-2s;"></span>
+    <span class="sc-node" style="--nx:88%; --ny:30%; --ndur:14s; --nd:-5s;"></span>
+    <span class="sc-node" style="--nx:20%; --ny:78%; --ndur:13s; --nd:-1s;"></span>
+    <span class="sc-node" style="--nx:72%; --ny:88%; --ndur:12s; --nd:-7s;"></span>
+
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-label">Skills</span>
+        <h2 class="section-title">A Living <span class="grad-text">Constellation</span></h2>
+        <p class="section-sub">Four disciplines I work across — each tag floats; hover any of them to see the projects it shaped.</p>
+      </div>
+
+      <div class="sc-clusters">
+
+        <!-- Product Management -->
+        <div class="sc-cluster reveal-up" data-delay="0">
+          <div class="sc-cluster-head">
+            <div class="sc-cluster-icon"><i class="fas fa-chess-knight"></i></div>
+            <h3>Product Management</h3>
+          </div>
+          <div class="sc-cloud">
+            <span class="sc-chip-float" style="--dur:6.2s;--d:-0.4s"><button class="sc-chip" type="button">Product Strategy<span class="sc-pop"><b>Used in</b> Payroll Automation Engine · 150-Country Rollout</span></button></span>
+            <span class="sc-chip-float" style="--dur:7.4s;--d:-2.1s"><button class="sc-chip" type="button">Roadmapping<span class="sc-pop"><b>Used in</b> Compliance AI Suite · Vendor Onboarding 0→1</span></button></span>
+            <span class="sc-chip-float" style="--dur:5.6s;--d:-1.3s"><button class="sc-chip" type="button">PRDs<span class="sc-pop"><b>Used in</b> Internal Tooling Platform</span></button></span>
+            <span class="sc-chip-float" style="--dur:8.1s;--d:-3.4s"><button class="sc-chip" type="button">Agile / Scrum<span class="sc-pop"><b>Used in</b> Compliance AI Suite · Payroll Automation Engine</span></button></span>
+            <span class="sc-chip-float" style="--dur:6.8s;--d:-0.9s"><button class="sc-chip" type="button">0→1 Development<span class="sc-pop"><b>Used in</b> Vendor Onboarding 0→1 · AI Agent Workbench</span></button></span>
+            <span class="sc-chip-float" style="--dur:7.0s;--d:-2.7s"><button class="sc-chip" type="button">OKRs &amp; KPIs<span class="sc-pop"><b>Used in</b> 150-Country Rollout</span></button></span>
+            <span class="sc-chip-float" style="--dur:5.9s;--d:-1.7s"><button class="sc-chip" type="button">Experimentation<span class="sc-pop"><b>Used in</b> Metabase Analytics Hub</span></button></span>
+            <span class="sc-chip-float" style="--dur:8.4s;--d:-4.0s"><button class="sc-chip" type="button">Cross-Functional Leadership<span class="sc-pop"><b>Used in</b> 150-Country Rollout · Compliance AI Suite</span></button></span>
+          </div>
+        </div>
+
+        <!-- AI & Automation -->
+        <div class="sc-cluster reveal-up" data-delay="90">
+          <div class="sc-cluster-head">
+            <div class="sc-cluster-icon"><i class="fas fa-robot"></i></div>
+            <h3>AI &amp; Automation</h3>
+          </div>
+          <div class="sc-cloud">
+            <span class="sc-chip-float" style="--dur:6.6s;--d:-0.6s"><button class="sc-chip" type="button">AI Agents<span class="sc-pop"><b>Used in</b> AI Agent Workbench · Compliance AI Suite</span></button></span>
+            <span class="sc-chip-float" style="--dur:7.7s;--d:-2.3s"><button class="sc-chip" type="button">OpenAI API<span class="sc-pop"><b>Used in</b> AI Agent Workbench</span></button></span>
+            <span class="sc-chip-float" style="--dur:5.5s;--d:-1.1s"><button class="sc-chip" type="button">Workflow Automation<span class="sc-pop"><b>Used in</b> Payroll Automation Engine · Internal Tooling Platform</span></button></span>
+            <span class="sc-chip-float" style="--dur:8.0s;--d:-3.6s"><button class="sc-chip" type="button">Machine Learning<span class="sc-pop"><b>Used in</b> Compliance AI Suite</span></button></span>
+            <span class="sc-chip-float" style="--dur:6.3s;--d:-0.8s"><button class="sc-chip" type="button">GenAI Applications<span class="sc-pop"><b>Used in</b> AI Agent Workbench</span></button></span>
+            <span class="sc-chip-float" style="--dur:7.2s;--d:-2.9s"><button class="sc-chip" type="button">LLM Integrations<span class="sc-pop"><b>Used in</b> Compliance AI Suite · Internal Tooling Platform</span></button></span>
+          </div>
+        </div>
+
+        <!-- Engineering -->
+        <div class="sc-cluster reveal-up" data-delay="180">
+          <div class="sc-cluster-head">
+            <div class="sc-cluster-icon"><i class="fas fa-code"></i></div>
+            <h3>Engineering</h3>
+          </div>
+          <div class="sc-cloud">
+            <span class="sc-chip-float" style="--dur:6.1s;--d:-0.5s"><button class="sc-chip" type="button">Python<span class="sc-pop"><b>Used in</b> Payroll Automation Engine · AI Agent Workbench</span></button></span>
+            <span class="sc-chip-float" style="--dur:7.5s;--d:-2.0s"><button class="sc-chip" type="button">FastAPI<span class="sc-pop"><b>Used in</b> AI Agent Workbench</span></button></span>
+            <span class="sc-chip-float" style="--dur:5.7s;--d:-1.4s"><button class="sc-chip" type="button">Flask<span class="sc-pop"><b>Used in</b> Internal Tooling Platform</span></button></span>
+            <span class="sc-chip-float" style="--dur:8.3s;--d:-3.8s"><button class="sc-chip" type="button">Java<span class="sc-pop"><b>Used in</b> Compliance AI Suite</span></button></span>
+            <span class="sc-chip-float" style="--dur:6.5s;--d:-0.7s"><button class="sc-chip" type="button">Dart / Flutter<span class="sc-pop"><b>Used in</b> Vendor Onboarding 0→1</span></button></span>
+            <span class="sc-chip-float" style="--dur:7.1s;--d:-2.6s"><button class="sc-chip" type="button">GraphQL<span class="sc-pop"><b>Used in</b> Internal Tooling Platform</span></button></span>
+            <span class="sc-chip-float" style="--dur:5.8s;--d:-1.6s"><button class="sc-chip" type="button">Firebase<span class="sc-pop"><b>Used in</b> Vendor Onboarding 0→1</span></button></span>
+            <span class="sc-chip-float" style="--dur:8.2s;--d:-4.2s"><button class="sc-chip" type="button">GCP<span class="sc-pop"><b>Used in</b> 150-Country Rollout · Payroll Automation Engine</span></button></span>
+          </div>
+        </div>
+
+        <!-- Analytics & Data -->
+        <div class="sc-cluster reveal-up" data-delay="270">
+          <div class="sc-cluster-head">
+            <div class="sc-cluster-icon"><i class="fas fa-chart-bar"></i></div>
+            <h3>Analytics &amp; Data</h3>
+          </div>
+          <div class="sc-cloud">
+            <span class="sc-chip-float" style="--dur:6.4s;--d:-0.3s"><button class="sc-chip" type="button">SQL<span class="sc-pop"><b>Used in</b> Metabase Analytics Hub · Payroll Automation Engine</span></button></span>
+            <span class="sc-chip-float" style="--dur:7.6s;--d:-2.4s"><button class="sc-chip" type="button">Metabase<span class="sc-pop"><b>Used in</b> Metabase Analytics Hub</span></button></span>
+            <span class="sc-chip-float" style="--dur:5.4s;--d:-1.0s"><button class="sc-chip" type="button">Elasticsearch<span class="sc-pop"><b>Used in</b> Internal Tooling Platform</span></button></span>
+            <span class="sc-chip-float" style="--dur:8.0s;--d:-3.5s"><button class="sc-chip" type="button">A/B Testing<span class="sc-pop"><b>Used in</b> 150-Country Rollout</span></button></span>
+            <span class="sc-chip-float" style="--dur:6.7s;--d:-0.95s"><button class="sc-chip" type="button">Funnel Analysis<span class="sc-pop"><b>Used in</b> Metabase Analytics Hub</span></button></span>
+            <span class="sc-chip-float" style="--dur:7.3s;--d:-2.8s"><button class="sc-chip" type="button">Excel<span class="sc-pop"><b>Used in</b> Payroll Automation Engine</span></button></span>
+            <span class="sc-chip-float" style="--dur:5.9s;--d:-1.9s"><button class="sc-chip" type="button">Postman<span class="sc-pop"><b>Used in</b> AI Agent Workbench · Internal Tooling Platform</span></button></span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       CERTIFICATIONS
+  ══════════════════════════════════════ -->
+  <section class="section sc-certs" id="certifications">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-label">Credentials</span>
+        <h2 class="section-title">Verified &amp; <span class="grad-text">Certified</span></h2>
+        <p class="section-sub">Continuous learning, on the record. Expand a card for what it covered, or verify it on Coursera.</p>
+      </div>
+
+      <!-- ── Specializations ── -->
+      <p class="sc-subsection-label reveal-up">Specializations</p>
+      <div class="sc-cert-grid sc-cert-grid--spec">
+
+        <div class="sc-cert sc-cert--expandable reveal-up" data-delay="0">
+          <div class="sc-cert-glow"></div>
+          <button class="sc-cert-toggle" type="button" aria-expanded="false" aria-label="Show more"><i class="fas fa-chevron-down"></i></button>
+          <div class="sc-cert-logo"><i class="fas fa-brain"></i></div>
+          <h3>Machine Learning Specialization</h3>
+          <p class="sc-cert-meta">DeepLearning.AI &amp; Stanford · Coursera</p>
+          <div class="sc-cert-more">
+            <div class="sc-cert-more-inner">
+              <p class="sc-cert-overview">Three-course specialization by Andrew Ng, completed August 2024. <strong>Supervised Machine Learning: Regression and Classification</strong> builds linear and logistic regression models from scratch — cost functions, gradient descent, feature engineering, and regularization. <strong>Advanced Learning Algorithms</strong> moves into neural networks in TensorFlow, activation functions, multiclass classification, and tree-based methods like random forests and XGBoost, alongside practical ML diagnostics such as bias/variance analysis. <strong>Unsupervised Learning, Recommenders, Reinforcement Learning</strong> closes it out with K-means clustering, anomaly detection, collaborative and content-based recommenders, PCA, and reinforcement learning through Q-learning and a Deep Q-Network.</p>
+              <div class="sc-cert-tag-group">
+                <span class="sc-cert-tag-label">Key concepts</span>
+                <div class="sc-cert-tags"><span>Linear &amp; Logistic Regression</span><span>Neural Networks</span><span>Decision Trees &amp; XGBoost</span><span>K-Means Clustering</span><span>Recommender Systems</span><span>Reinforcement Learning</span></div>
+              </div>
+              <div class="sc-cert-tag-group">
+                <span class="sc-cert-tag-label">Tools</span>
+                <div class="sc-cert-tags"><span>Python</span><span>NumPy</span><span>TensorFlow</span><span>scikit-learn</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="sc-cert-foot">
+            <span class="sc-cert-date">2024</span>
+            <a class="sc-cert-verify" href="https://coursera.org/share/81c3a9050a8792714585f06790e0a257" target="_blank" rel="noopener">Verify <i class="fas fa-arrow-up-right-from-square"></i></a>
+          </div>
+        </div>
+
+        <div class="sc-cert sc-cert--wip reveal-up" data-delay="80">
+          <div class="sc-cert-glow"></div>
+          <span class="sc-cert-wip-badge">In Progress</span>
+          <div class="sc-cert-logo"><i class="fas fa-id-badge"></i></div>
+          <h3>AI Product Manager Professional Certificate</h3>
+          <p class="sc-cert-meta">IBM · Coursera · SkillUp</p>
+          <div class="sc-cert-foot"><span class="sc-cert-date">2026</span><span class="sc-cert-verify sc-cert-verify--muted">In progress</span></div>
+        </div>
+
+      </div>
+
+      <!-- ── Certifications ── -->
+      <p class="sc-subsection-label reveal-up">Certifications</p>
+      <div class="sc-cert-grid">
+
+        <div class="sc-cert sc-cert--expandable reveal-up" data-delay="0">
+          <div class="sc-cert-glow"></div>
+          <button class="sc-cert-toggle" type="button" aria-expanded="false" aria-label="Show more"><i class="fas fa-chevron-down"></i></button>
+          <div class="sc-cert-logo"><i class="fas fa-diagram-project"></i></div>
+          <h3>Product Management: An Introduction</h3>
+          <p class="sc-cert-meta">IBM · Coursera</p>
+          <div class="sc-cert-more">
+            <div class="sc-cert-more-inner">
+              <p class="sc-cert-overview">Defines what a product manager does and the skills and competencies needed to succeed, then walks through the end-to-end product lifecycle and the PM's role at each stage. Introduces core fundamentals — personas, value creation, and SWOT analysis — along with PM career paths and the industry-standard ProdBoK&reg; body of knowledge, wrapped up with a hands-on final project applying the concepts in a simulated real-world setting. First course of the IBM Product Management Professional Certificate.</p>
+              <div class="sc-cert-tag-group">
+                <span class="sc-cert-tag-label">Key concepts</span>
+                <div class="sc-cert-tags"><span>PM Roles &amp; Responsibilities</span><span>Product Lifecycle</span><span>Personas</span><span>SWOT Analysis</span><span>ProdBoK&reg;</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="sc-cert-foot">
+            <span class="sc-cert-date">2026</span>
+            <a class="sc-cert-verify" href="https://coursera.org/share/ef8a8a87d5655e8dd6ee81e3d1cbd5d3" target="_blank" rel="noopener">Verify <i class="fas fa-arrow-up-right-from-square"></i></a>
+          </div>
+        </div>
+
+        <div class="sc-cert sc-cert--expandable reveal-up" data-delay="80">
+          <div class="sc-cert-glow"></div>
+          <button class="sc-cert-toggle" type="button" aria-expanded="false" aria-label="Show more"><i class="fas fa-chevron-down"></i></button>
+          <div class="sc-cert-logo"><i class="fas fa-clipboard-list"></i></div>
+          <h3>Product Management Essentials</h3>
+          <p class="sc-cert-meta">University of Maryland · Coursera</p>
+          <div class="sc-cert-more">
+            <div class="sc-cert-more-inner">
+              <p class="sc-cert-overview">Explains why product management is one of the fastest-growing, most sought-after roles and a common launch pad for future founders and CEOs, then breaks down the PM's position within an organization and the skills needed to work with teams and stakeholders. Covers how to establish, organize, and lead an innovative product team — choosing the right development methodology, structuring teams, and building a team charter — before moving into market development and commercialization: rethinking the 4 P's of marketing, customer development, and market segmentation and expansion. Part of the Product Ideation, Design, and Management Specialization (University of Maryland).</p>
+              <div class="sc-cert-tag-group">
+                <span class="sc-cert-tag-label">Key concepts</span>
+                <div class="sc-cert-tags"><span>Team Leadership</span><span>Development Methodologies</span><span>Strategic Marketing</span><span>The 4 P's</span><span>Market Segmentation</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="sc-cert-foot">
+            <span class="sc-cert-date">2026</span>
+            <a class="sc-cert-verify" href="https://coursera.org/share/d51b0d6528fbd95730079834518632ff" target="_blank" rel="noopener">Verify <i class="fas fa-arrow-up-right-from-square"></i></a>
+          </div>
+        </div>
+
+        <div class="sc-cert sc-cert--expandable reveal-up" data-delay="160">
+          <div class="sc-cert-glow"></div>
+          <button class="sc-cert-toggle" type="button" aria-expanded="false" aria-label="Show more"><i class="fas fa-chevron-down"></i></button>
+          <div class="sc-cert-logo"><i class="fas fa-people-group"></i></div>
+          <h3>PM: Foundations &amp; Stakeholder Collaboration</h3>
+          <p class="sc-cert-meta">SkillUp · Coursera</p>
+          <div class="sc-cert-more">
+            <div class="sc-cert-more-inner">
+              <p class="sc-cert-overview">Focuses on the communication and collaboration skills that make a PM effective, positioning the PM as the link between customers, stakeholders, and the development team. Covers business development fundamentals — Kotler's Five Levels of Product, market segmentation, and SWOT analysis — then strategy and innovation through Porter's Five Forces and ideation techniques. Closes by examining different communication styles and their impact on interpersonal effectiveness and teamwork, evaluated through a final case study with actionable recommendations. Taught by Daniel C. Yeomans.</p>
+              <div class="sc-cert-tag-group">
+                <span class="sc-cert-tag-label">Key concepts</span>
+                <div class="sc-cert-tags"><span>Stakeholder Collaboration</span><span>Kotler's Five Levels of Product</span><span>Market Segmentation</span><span>Porter's Five Forces</span><span>Communication Styles</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="sc-cert-foot">
+            <span class="sc-cert-date">2026</span>
+            <a class="sc-cert-verify" href="https://coursera.org/share/105af9c246fd70c09f7963daa1fbf385" target="_blank" rel="noopener">Verify <i class="fas fa-arrow-up-right-from-square"></i></a>
+          </div>
+        </div>
+
+        <div class="sc-cert sc-cert--expandable reveal-up" data-delay="0">
+          <div class="sc-cert-glow"></div>
+          <button class="sc-cert-toggle" type="button" aria-expanded="false" aria-label="Show more"><i class="fas fa-chevron-down"></i></button>
+          <div class="sc-cert-logo"><i class="fas fa-chart-line"></i></div>
+          <h3>Supervised ML: Regression &amp; Classification</h3>
+          <p class="sc-cert-meta">DeepLearning.AI &amp; Stanford · Coursera</p>
+          <div class="sc-cert-more">
+            <div class="sc-cert-more-inner">
+              <p class="sc-cert-overview">Foundational course of the ML Specialization. Starts with the difference between supervised and unsupervised learning, then builds a linear regression model from the ground up — the cost function and gradient descent as the core optimization algorithm. Extends into multiple linear regression with vectorization in NumPy, feature scaling and engineering, and polynomial regression for non-linear data, before introducing logistic regression for binary classification — the sigmoid function, decision boundaries, and how regularization addresses overfitting.</p>
+              <div class="sc-cert-tag-group">
+                <span class="sc-cert-tag-label">Key concepts</span>
+                <div class="sc-cert-tags"><span>Linear Regression</span><span>Cost Functions</span><span>Gradient Descent</span><span>Feature Scaling &amp; Engineering</span><span>Logistic Regression</span><span>Regularization</span></div>
+              </div>
+              <div class="sc-cert-tag-group">
+                <span class="sc-cert-tag-label">Tools</span>
+                <div class="sc-cert-tags"><span>Python</span><span>NumPy</span><span>scikit-learn</span><span>Jupyter</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="sc-cert-foot">
+            <span class="sc-cert-date">2024</span>
+            <a class="sc-cert-verify" href="https://coursera.org/share/3b0391e922064c642361378e3852de08" target="_blank" rel="noopener">Verify <i class="fas fa-arrow-up-right-from-square"></i></a>
+          </div>
+        </div>
+
+        <div class="sc-cert sc-cert--expandable reveal-up" data-delay="80">
+          <div class="sc-cert-glow"></div>
+          <button class="sc-cert-toggle" type="button" aria-expanded="false" aria-label="Show more"><i class="fas fa-chevron-down"></i></button>
+          <div class="sc-cert-logo"><i class="fas fa-network-wired"></i></div>
+          <h3>Advanced Learning Algorithms</h3>
+          <p class="sc-cert-meta">DeepLearning.AI &amp; Stanford · Coursera</p>
+          <div class="sc-cert-more">
+            <div class="sc-cert-more-inner">
+              <p class="sc-cert-overview">Moves from linear models into neural networks and tree-based methods. Covers how neural networks work and how to build one in TensorFlow, including coding a forward pass from scratch in Python, then goes deeper into training — activation functions beyond sigmoid, multiclass and multi-label classification via softmax, and the Adam optimizer. Shifts into practical ML development — evaluating models, the bias/variance tradeoff, error analysis, transfer learning, and responsible/ethical AI — and closes with decision trees, measuring purity via entropy and information gain, and tree ensembles like random forests and XGBoost.</p>
+              <div class="sc-cert-tag-group">
+                <span class="sc-cert-tag-label">Key concepts</span>
+                <div class="sc-cert-tags"><span>Neural Networks</span><span>TensorFlow</span><span>Activation Functions</span><span>Multiclass Classification</span><span>Bias/Variance Tradeoff</span><span>Decision Trees &amp; XGBoost</span></div>
+              </div>
+              <div class="sc-cert-tag-group">
+                <span class="sc-cert-tag-label">Tools</span>
+                <div class="sc-cert-tags"><span>Python</span><span>TensorFlow</span><span>scikit-learn</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="sc-cert-foot">
+            <span class="sc-cert-date">2024</span>
+            <a class="sc-cert-verify" href="https://coursera.org/share/2fd0850d8173127062382e071f27c230" target="_blank" rel="noopener">Verify <i class="fas fa-arrow-up-right-from-square"></i></a>
+          </div>
+        </div>
+
+        <div class="sc-cert sc-cert--expandable reveal-up" data-delay="160">
+          <div class="sc-cert-glow"></div>
+          <button class="sc-cert-toggle" type="button" aria-expanded="false" aria-label="Show more"><i class="fas fa-chevron-down"></i></button>
+          <div class="sc-cert-logo"><i class="fas fa-layer-group"></i></div>
+          <h3>Unsupervised Learning, Recommenders &amp; RL</h3>
+          <p class="sc-cert-meta">DeepLearning.AI &amp; Stanford · Coursera</p>
+          <div class="sc-cert-more">
+            <div class="sc-cert-more-inner">
+              <p class="sc-cert-overview">Capstone course of the ML Specialization. Covers two key unsupervised techniques — K-means clustering and anomaly detection using a Gaussian distribution — then moves into building recommender systems with collaborative and content-based filtering, plus a look at PCA for dimensionality reduction. Closes with an introduction to reinforcement learning: states, actions, rewards, the Bellman equation, and building a working Deep Q-Network on a sample problem like a lunar lander.</p>
+              <div class="sc-cert-tag-group">
+                <span class="sc-cert-tag-label">Key concepts</span>
+                <div class="sc-cert-tags"><span>K-Means Clustering</span><span>Anomaly Detection</span><span>Collaborative Filtering</span><span>PCA</span><span>Q-Learning</span><span>Deep Reinforcement Learning</span></div>
+              </div>
+              <div class="sc-cert-tag-group">
+                <span class="sc-cert-tag-label">Tools</span>
+                <div class="sc-cert-tags"><span>Python</span><span>TensorFlow</span><span>NumPy</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="sc-cert-foot">
+            <span class="sc-cert-date">2024</span>
+            <a class="sc-cert-verify" href="https://coursera.org/share/1d1d5060a6f54bf67858ab461f0d6a61" target="_blank" rel="noopener">Verify <i class="fas fa-arrow-up-right-from-square"></i></a>
+          </div>
+        </div>
+
+        <div class="sc-cert sc-cert--expandable reveal-up" data-delay="0">
+          <div class="sc-cert-glow"></div>
+          <button class="sc-cert-toggle" type="button" aria-expanded="false" aria-label="Show more"><i class="fas fa-chevron-down"></i></button>
+          <div class="sc-cert-logo"><i class="fas fa-robot"></i></div>
+          <h3>Generative AI: Introduction &amp; Applications</h3>
+          <p class="sc-cert-meta">IBM · Coursera</p>
+          <div class="sc-cert-more">
+            <div class="sc-cert-more-inner">
+              <p class="sc-cert-overview">A foundational tour of generative AI. Covers the fundamentals of generative AI and how it differs from discriminative AI, tracing the evolution of large language models and generative capabilities across text, image, code, audio, and video. Explores real-world applications across IT, entertainment, education, finance, healthcare, and HR, along with the tools and models behind them — GPT, DALL&middot;E, Stable Diffusion, and Synthesia — capped by hands-on labs in IBM's Generative AI Classroom and ChatGPT.</p>
+              <div class="sc-cert-tag-group">
+                <span class="sc-cert-tag-label">Key concepts</span>
+                <div class="sc-cert-tags"><span>Generative vs. Discriminative AI</span><span>Large Language Models</span><span>Prompt-based Generation</span><span>Industry Applications</span></div>
+              </div>
+              <div class="sc-cert-tag-group">
+                <span class="sc-cert-tag-label">Tools</span>
+                <div class="sc-cert-tags"><span>ChatGPT / GPT</span><span>DALL&middot;E</span><span>Stable Diffusion</span><span>Synthesia</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="sc-cert-foot">
+            <span class="sc-cert-date">2026</span>
+            <a class="sc-cert-verify" href="https://coursera.org/share/96f5a01a99e3bf883eceff9067cdd948" target="_blank" rel="noopener">Verify <i class="fas fa-arrow-up-right-from-square"></i></a>
+          </div>
+        </div>
+
+        <div class="sc-cert sc-cert--expandable reveal-up" data-delay="80">
+          <div class="sc-cert-glow"></div>
+          <button class="sc-cert-toggle" type="button" aria-expanded="false" aria-label="Show more"><i class="fas fa-chevron-down"></i></button>
+          <div class="sc-cert-logo"><i class="fas fa-database"></i></div>
+          <h3>Databases &amp; SQL for Data Science with Python</h3>
+          <p class="sc-cert-meta">IBM · Coursera</p>
+          <div class="sc-cert-more">
+            <div class="sc-cert-more-inner">
+              <p class="sc-cert-overview">End-to-end SQL for data professionals. Starts with core SQL statements — SELECT, INSERT, UPDATE, DELETE — and filtering results with WHERE, COUNT, and DISTINCT, then introduces relational database concepts and creating/altering tables on MySQL. Moves into intermediate SQL — string patterns, sorting and grouping, sub-queries, and multi-table queries — before connecting to databases from Python using SQL magic and SQLite in a Jupyter Notebook. Includes a hands-on project querying real City of Chicago datasets, plus a bonus module on views, stored procedures, ACID transactions, and inner/outer joins.</p>
+              <div class="sc-cert-tag-group">
+                <span class="sc-cert-tag-label">Key concepts</span>
+                <div class="sc-cert-tags"><span>SQL Queries</span><span>DDL &amp; DML</span><span>Joins &amp; Sub-queries</span><span>Views &amp; Stored Procedures</span><span>ACID Transactions</span></div>
+              </div>
+              <div class="sc-cert-tag-group">
+                <span class="sc-cert-tag-label">Tools</span>
+                <div class="sc-cert-tags"><span>SQL</span><span>MySQL</span><span>Python</span><span>Jupyter</span><span>SQLite</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="sc-cert-foot">
+            <span class="sc-cert-date">2024</span>
+            <a class="sc-cert-verify" href="https://coursera.org/share/236b3ef0c7ad67b6cc0d7312a1f4a75c" target="_blank" rel="noopener">Verify <i class="fas fa-arrow-up-right-from-square"></i></a>
+          </div>
+        </div>
+
+        <div class="sc-cert sc-cert--expandable reveal-up" data-delay="160">
+          <div class="sc-cert-glow"></div>
+          <button class="sc-cert-toggle" type="button" aria-expanded="false" aria-label="Show more"><i class="fas fa-chevron-down"></i></button>
+          <div class="sc-cert-logo"><i class="fas fa-cube"></i></div>
+          <h3>Blockchain &amp; Cryptocurrency Explained</h3>
+          <p class="sc-cert-meta">University of Michigan · Coursera</p>
+          <div class="sc-cert-more">
+            <div class="sc-cert-more-inner">
+              <p class="sc-cert-overview">Explains the technology behind blockchain and why it attracted global attention through the rise (and fall) of Bitcoin. Breaks down how blockchain actually works — decentralization and consensus algorithms — then evaluates cryptocurrency as an asset class and its market dynamics, weighing its strengths and weaknesses as both an asset and a payment mechanism, before assessing blockchain as a business solution and where it does and doesn't make sense as a real business case. Taught by Andrew Wu, part of the Fintech Innovations Specialization.</p>
+              <div class="sc-cert-tag-group">
+                <span class="sc-cert-tag-label">Key concepts</span>
+                <div class="sc-cert-tags"><span>Decentralization</span><span>Consensus Algorithms</span><span>Cryptocurrency Markets</span><span>Digital Assets</span><span>Business Case Evaluation</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="sc-cert-foot">
+            <span class="sc-cert-date">2024</span>
+            <a class="sc-cert-verify" href="https://coursera.org/share/194662dc5b637da4061586216d0e08d6" target="_blank" rel="noopener">Verify <i class="fas fa-arrow-up-right-from-square"></i></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       RECOGNITION & AWARDS
+  ══════════════════════════════════════ -->
+  <section class="section sc-awards" id="recognition">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-label">Recognition</span>
+        <h2 class="section-title">Awards &amp; <span class="grad-text">Honours</span></h2>
+        <p class="section-sub">A few moments where the work spoke for itself.</p>
+      </div>
+
+      <div class="sc-award-list">
+
+        <div class="sc-award reveal-left" data-delay="0">
+          <div class="sc-award-rail"><div class="sc-award-icon"><i class="fas fa-star"></i></div></div>
+          <div class="sc-award-body">
+            <div class="sc-award-head"><h3>Co-curricular Star Award</h3><span class="sc-award-year">2022</span></div>
+            <p class="sc-award-org">PES University</p>
+            <p class="sc-award-desc">Awarded for sustained, standout contribution across technical clubs and leadership initiatives — given to a small handful of students each year.</p>
+          </div>
+        </div>
+
+        <div class="sc-award sc-award--expandable reveal-left" data-delay="90">
+          <div class="sc-award-rail"><div class="sc-award-icon"><i class="fas fa-trophy"></i></div></div>
+          <div class="sc-award-body">
+            <div class="sc-award-head"><h3>Winner — Dotslash 5.0 Hackathon</h3><span class="sc-award-year">2024</span></div>
+            <p class="sc-award-org">PES University · 24+ Hour Hackathon</p>
+            <p class="sc-award-desc">Built <strong>padh.ai</strong>, an AI-powered EdTech learning assistant that lets students ask contextual questions directly within video courses without leaving the platform. Leveraged a RAG architecture over lecture transcripts and slide content to deliver accurate, context-aware answers. Won 1st place after 26+ hours, competing against top student teams from across the state.</p>
+            <div class="sc-award-more">
+              <div class="sc-award-more-inner">
+                <ul class="sc-award-points">
+                  <li>Designed and developed an AI learning assistant for online course platforms.</li>
+                  <li>Solved the problem of students leaving to search YouTube, Google, or docs when hitting unfamiliar concepts.</li>
+                  <li>Built a context-aware chatbot that understands both lecture videos and presentation slides.</li>
+                  <li>Generated embeddings from video transcripts and slide content for semantic retrieval.</li>
+                  <li>Implemented Retrieval-Augmented Generation (RAG) for precise answers grounded in course material.</li>
+                  <li>Enabled students to learn, clarify, and revisit topics without disrupting their flow.</li>
+                </ul>
+                <div class="sc-award-tech">
+                  <span class="sc-award-tech-label">Built with</span>
+                  <div class="sc-award-tags">
+                    <span>Flutter</span><span>FastAPI</span><span>LangChain</span><span>OpenAI GPT-3.5 Turbo</span><span>FAISS</span><span>Deepgram</span><span>Firebase Auth</span><span>OAuth</span>
+                  </div>
+                </div>
+                <a class="sc-award-link" href="https://www.linkedin.com/posts/siddhantjagdish_first-hackathon-video-ugcPost-7223416481831645184--hhC/" target="_blank" rel="noopener">Check it out here <i class="fas fa-arrow-up-right-from-square"></i></a>
+              </div>
+            </div>
+            <button class="sc-award-toggle" type="button" aria-expanded="false"><span class="sc-award-toggle-label">Show more</span><i class="fas fa-chevron-down"></i></button>
+          </div>
+        </div>
+
+        <div class="sc-award sc-award--expandable reveal-left" data-delay="180">
+          <div class="sc-award-rail"><div class="sc-award-icon"><i class="fas fa-trophy"></i></div></div>
+          <div class="sc-award-body">
+            <div class="sc-award-head"><h3>Winner, FinTech — Arithemania 3.0 Hackathon</h3><span class="sc-award-year">2024</span></div>
+            <p class="sc-award-org">PES University · 36+ Hour Hackathon</p>
+            <p class="sc-award-desc">Built <strong>r.ai</strong>, an AI-powered personal finance companion that simplifies investing, budgeting, and financial learning for beginners while surfacing actionable insights for experienced investors. Leveraged LLMs, vector search, and real-time market data pipelines for personalized guidance. Won 1st place in the Finance Track.</p>
+            <div class="sc-award-more">
+              <div class="sc-award-more-inner">
+                <ul class="sc-award-points">
+                  <li>Designed an AI finance assistant covering budgeting, investing, and financial education.</li>
+                  <li>Built personalized budgeting workflows using embeddings and semantic retrieval over user financial data.</li>
+                  <li>Developed a real-time stock intelligence engine powered by vector search and live market data.</li>
+                  <li>Implemented intent classification to route queries between investing, budgeting, and learning workflows.</li>
+                  <li>Focused on a beginner-friendly experience while retaining capabilities for advanced investors.</li>
+                </ul>
+                <div class="sc-award-tech">
+                  <span class="sc-award-tech-label">Built with</span>
+                  <div class="sc-award-tags">
+                    <span>Flutter</span><span>Flask</span><span>Firebase Auth</span><span>Llama 3</span><span>DistilBERT</span><span>FAISS</span><span>AstraDB</span><span>Vector DBs</span><span>Upstox API</span>
+                  </div>
+                </div>
+                <a class="sc-award-link" href="https://www.linkedin.com/posts/siddhantjagdish_winners-finance-hackathon-ugcPost-7226110132177223681-VC2J/" target="_blank" rel="noopener">Check it out here <i class="fas fa-arrow-up-right-from-square"></i></a>
+              </div>
+            </div>
+            <button class="sc-award-toggle" type="button" aria-expanded="false"><span class="sc-award-toggle-label">Show more</span><i class="fas fa-chevron-down"></i></button>
+          </div>
+        </div>
+
+        <div class="sc-award sc-award--expandable reveal-left" data-delay="270">
+          <div class="sc-award-rail"><div class="sc-award-icon"><i class="fas fa-medal"></i></div></div>
+          <div class="sc-award-body">
+            <div class="sc-award-head"><h3>Top 10 — Hashcode 12.0 Hackathon</h3><span class="sc-award-year">2024</span></div>
+            <p class="sc-award-org">PES University · 24-Hour Hackathon</p>
+            <p class="sc-award-desc">Built <strong>readmore.ai</strong>, an AI-powered reading companion that boosts engagement through context-aware visuals and adaptive background audio generated in real time as users read. Designed to help readers with short attention spans stay focused without relying on summarization. Finished Top 10 out of 200+ submissions.</p>
+            <div class="sc-award-more">
+              <div class="sc-award-more-inner">
+                <ul class="sc-award-points">
+                  <li>Reimagined digital reading through AI-generated visual and audio experiences.</li>
+                  <li>Generated context-aware images and ambient music dynamically for each section of text.</li>
+                  <li>Focused on improving reading engagement for users with ADHD and shorter attention spans.</li>
+                  <li>Built a Netflix-inspired reading platform with personalized, immersive experiences.</li>
+                  <li>Maintained content consistency using prompt seeding and asynchronous generation pipelines.</li>
+                </ul>
+                <div class="sc-award-tech">
+                  <span class="sc-award-tech-label">Built with</span>
+                  <div class="sc-award-tags">
+                    <span>Flutter</span><span>Dart</span><span>Flask</span><span>OpenAI GPT-3.5</span><span>Dreamlike Photoreal 2.0</span><span>MusicGen</span>
+                  </div>
+                </div>
+                <a class="sc-award-link" href="https://www.linkedin.com/posts/siddhantjagdish_hackathon-summarization-context-ugcPost-7229794476557287424-S1st/" target="_blank" rel="noopener">Check it out here <i class="fas fa-arrow-up-right-from-square"></i></a>
+              </div>
+            </div>
+            <button class="sc-award-toggle" type="button" aria-expanded="false"><span class="sc-award-toggle-label">Show more</span><i class="fas fa-chevron-down"></i></button>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="sc-cta reveal-up">
+        <p>Want the references behind any of these?</p>
+        <a href="index.html#contact" class="btn btn-primary">Get in touch <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo">SJ</a>
+          <p>Associate Product Manager.<br>Building products that matter.</p>
+        </div>
+        <div class="footer-nav-cols">
+          <div class="footer-col">
+            <h4>Navigate</h4>
+            <ul>
+              <li><a href="index.html#about">About</a></li>
+              <li><a href="index.html#experience">Experience</a></li>
+              <li><a href="skills.html">Skills</a></li>
+              <li><a href="journey.html">My Journey</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Work</h4>
+            <ul>
+              <li><a href="blog.html">Case Studies</a></li>
+              <li><a href="blog.html">Articles</a></li>
+              <li><a href="blog.html">Projects</a></li>
+              <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Siddhant Jagdish. Crafted with intention.</p>
+        <a href="#" class="back-top" id="back-top"><i class="fas fa-arrow-up"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Liquid Glass SVG Filters -->
+  <svg style="display:none" aria-hidden="true">
+    <defs>
+      <filter id="liquid-glass" x="-10%" y="-10%" width="120%" height="120%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.75 0.75" numOctaves="4" seed="8" result="noise"/>
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="5" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+      <filter id="tgl-goo">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur"/>
+        <feColorMatrix in="blur" type="matrix"
+          values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -9"
+          result="goo"/>
+        <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+      </filter>
+      <filter id="tgl-remove-black" color-interpolation-filters="sRGB">
+        <feColorMatrix type="matrix"
+          values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  -255 -255 -255 0 1"
+          result="black-pixels"/>
+        <feMorphology in="black-pixels" operator="dilate" radius="0.5" result="smoothed"/>
+        <feComposite in="SourceGraphic" in2="smoothed" operator="out"/>
+      </filter>
+    </defs>
+  </svg>
+
+  <script src="https://unpkg.com/gsap@3.12.2/dist/gsap.min.js"></script>
+  <script src="https://unpkg.com/gsap@3.12.2/dist/ScrollTrigger.min.js"></script>
+  <script src="js/main.js"></script>
+  <!-- Vercel Web Analytics — remember to enable "Analytics" in the Vercel dashboard -->
+  <script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

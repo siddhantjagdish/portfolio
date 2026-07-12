@@ -27,13 +27,23 @@ const cursor   = document.getElementById('cursor');
 const follower = document.getElementById('cursor-follower');
 
 if (cursor && follower) {
-  let mx = window.innerWidth / 2, my = window.innerHeight / 2;
+  /* Start off-screen and hidden so the ring doesn't park at screen
+     centre before the first mouse move (and stays hidden on touch). */
+  let mx = -100, my = -100;
   let fx = mx, fy = my;
+  let cursorShown = false;
+  cursor.style.opacity = '0';
+  follower.style.opacity = '0';
 
   document.addEventListener('mousemove', e => {
     mx = e.clientX; my = e.clientY;
     cursor.style.left = mx + 'px';
     cursor.style.top  = my + 'px';
+    if (!cursorShown) {
+      cursorShown = true;
+      cursor.style.opacity = '1';
+      follower.style.opacity = '1';
+    }
   });
 
   (function animFollower() {
@@ -109,24 +119,20 @@ function highlightActiveLink() {
    HERO ENTRANCE ANIMATIONS (GSAP)
    ================================================ */
 function initHeroEntrance() {
-  const badge   = document.getElementById('h-badge');
   const title   = document.querySelectorAll('#h-title .hl');
   const role    = document.getElementById('h-role');
   const desc    = document.getElementById('h-desc');
   const actions = document.getElementById('h-actions');
   const stats   = document.getElementById('h-stats');
 
-  if (!badge || !title.length) return;
+  if (!title.length) return;
 
   const tl = gsap.timeline({ delay: 0.1 });
 
-  tl.to(badge, {
-    opacity: 1, y: 0, duration: 0.7, ease: 'power3.out'
-  })
-  .to(title, {
+  tl.to(title, {
     opacity: 1, y: '0%', duration: 1.0,
     ease: 'power4.out', stagger: 0.14
-  }, '-=0.35')
+  })
   .to(role, {
     opacity: 1, y: 0, duration: 0.7, ease: 'power3.out'
   }, '-=0.5')
@@ -146,7 +152,7 @@ function initHeroEntrance() {
 
 /* Journey / Blog hero entrance */
 function initPageHeroEntrance() {
-  const lines = document.querySelectorAll('.journey-hero-title .hl, .blog-hero-title .hl');
+  const lines = document.querySelectorAll('.journey-hero-title .hl, .blog-hero-title .hl, .sc-hero-title .hl');
   if (!lines.length) return;
   gsap.to(lines, {
     opacity: 1, y: '0%', duration: 1.0,
@@ -159,10 +165,11 @@ function initPageHeroEntrance() {
    ================================================ */
 const PHRASES = [
   'Associate Product Manager',
-  'AI & Automation Builder',
+  'AI & Automation',
+  'FinTech',
   'Entrepreneur',
   '0→1 Product Builder',
-  'CS Grad · PES University',
+  'Computer Science Grad',
 ];
 let pIdx = 0, cIdx = 0, deleting = false, tDelay = 120;
 
@@ -345,7 +352,76 @@ function initScrollReveal() {
     });
   }, { threshold: 0.1, rootMargin: '0px 0px -48px 0px' });
 
-  document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right').forEach(el => io.observe(el));
+  document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right, [data-reveal]').forEach(el => io.observe(el));
+}
+
+/* ================================================
+   GLOBAL AMBIENT PARTICLE NETWORK (.amb-particles)
+   ================================================ */
+function initAmbient() {
+  const canvas = document.querySelector('.amb-particles');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const COUNT = 46, DIST = 126;
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let W, H, particles = [];
+
+  function resize() {
+    W = canvas.width  = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+  }
+  resize();
+  new ResizeObserver(resize).observe(canvas);
+
+  for (let i = 0; i < COUNT; i++) {
+    particles.push({
+      x: Math.random() * (W || window.innerWidth),
+      y: Math.random() * (H || window.innerHeight),
+      vx: (Math.random() - 0.5) * 0.22,
+      vy: (Math.random() - 0.5) * 0.22,
+      r: Math.random() * 1.4 + 0.5,
+      a: Math.random() * 0.4 + 0.15,
+    });
+  }
+
+  /* Particle colour follows the active theme (ink in flat-light mode). */
+  function cols() {
+    return document.documentElement.dataset.theme === 'light'
+      ? { dot: 'rgba(60,58,84,', line: 'rgba(60,58,84,' }
+      : { dot: 'rgba(129,140,248,', line: 'rgba(99,102,241,' };
+  }
+
+  function frame() {
+    const c = cols();
+    ctx.clearRect(0, 0, W, H);
+    for (let i = 0; i < particles.length; i++) {
+      const p = particles[i];
+      if (!reduce) {
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < 0) p.x = W; if (p.x > W) p.x = 0;
+        if (p.y < 0) p.y = H; if (p.y > H) p.y = 0;
+      }
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = c.dot + p.a + ')';
+      ctx.fill();
+      for (let j = i + 1; j < particles.length; j++) {
+        const q = particles[j];
+        const dx = q.x - p.x, dy = q.y - p.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < DIST) {
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(q.x, q.y);
+          ctx.strokeStyle = c.line + ((1 - dist / DIST) * 0.12) + ')';
+          ctx.lineWidth = 0.6;
+          ctx.stroke();
+        }
+      }
+    }
+    if (!reduce) requestAnimationFrame(frame);
+  }
+  frame();   /* reduced-motion → renders a single static network */
 }
 
 /* ================================================
@@ -532,6 +608,63 @@ function initNavIndicator() {
 }
 
 /* ================================================
+   EXPANDABLE AWARD CARDS
+   ================================================ */
+function initAwardToggles() {
+  const openCards = [];
+  document.querySelectorAll('.sc-award-toggle').forEach(btn => {
+    const card  = btn.closest('.sc-award');
+    const more  = card?.querySelector('.sc-award-more');
+    const label = btn.querySelector('.sc-award-toggle-label');
+    if (!card || !more) return;
+    btn.addEventListener('click', () => {
+      const open = card.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (label) label.textContent = open ? 'Show less' : 'Show more';
+      more.style.maxHeight = open ? more.scrollHeight + 'px' : '0px';
+      if (open) { if (!openCards.includes(more)) openCards.push(more); }
+      else { const i = openCards.indexOf(more); if (i > -1) openCards.splice(i, 1); }
+    });
+  });
+  /* Keep expanded cards correctly sized if the viewport reflows them */
+  window.addEventListener('resize', () => {
+    openCards.forEach(more => {
+      more.style.maxHeight = 'none';
+      const h = more.scrollHeight;
+      more.style.maxHeight = h + 'px';
+    });
+  });
+}
+
+/* ================================================
+   "WHAT I LEARNT" CERT TOGGLES
+   ================================================ */
+function initCertToggles() {
+  const openCards = [];
+  document.querySelectorAll('.sc-cert-toggle').forEach(btn => {
+    const card  = btn.closest('.sc-cert');
+    const more  = card?.querySelector('.sc-cert-more');
+    const label = btn.querySelector('.sc-cert-toggle-label');
+    if (!card || !more) return;
+    btn.addEventListener('click', () => {
+      const open = card.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (label) label.textContent = open ? 'Hide' : 'What I learnt';
+      more.style.maxHeight = open ? more.scrollHeight + 'px' : '0px';
+      if (open) { if (!openCards.includes(more)) openCards.push(more); }
+      else { const i = openCards.indexOf(more); if (i > -1) openCards.splice(i, 1); }
+    });
+  });
+  window.addEventListener('resize', () => {
+    openCards.forEach(more => {
+      more.style.maxHeight = 'none';
+      const h = more.scrollHeight;
+      more.style.maxHeight = h + 'px';
+    });
+  });
+}
+
+/* ================================================
    THEME TOGGLE
    ================================================ */
 function initThemeToggle() {
@@ -541,8 +674,8 @@ function initThemeToggle() {
   const themes   = ['dark', 'purple-light', 'light'];
   const completes = { 'dark': 0, 'purple-light': 50, 'light': 100 };
 
-  /* Restore saved preference */
-  const saved = localStorage.getItem('sj-theme') || 'dark';
+  /* Restore saved preference — first-time visitors get the mixed (purple-light) theme */
+  const saved = localStorage.getItem('sj-theme') || 'purple-light';
   applyTheme(saved, btn, false);
 
   btn.addEventListener('click', () => {
@@ -580,13 +713,75 @@ function applyTheme(theme, btn, animate) {
 }
 
 /* ================================================
+   THEME HINT (first home-page visit only)
+   ================================================ */
+function initThemeHint() {
+  if (!document.getElementById('hero')) return;             // home page only
+  if (localStorage.getItem('sj-theme-hint-seen')) return;   // show once, ever
+  const wrap   = document.querySelector('.theme-toggle-wrap');
+  const toggle = document.getElementById('theme-toggle');
+  if (!wrap || !toggle) return;
+
+  const hint = document.createElement('button');
+  hint.type = 'button';
+  hint.className = 'theme-hint';
+  hint.setAttribute('aria-label', 'Dismiss theme tip');
+  hint.innerHTML = '<i class="fas fa-palette"></i> Explore other themes';
+  wrap.appendChild(hint);
+
+  const seen = () => localStorage.setItem('sj-theme-hint-seen', '1');
+  let hideTimer, removeTimer;
+
+  const dismiss = () => {
+    clearTimeout(hideTimer); clearTimeout(removeTimer);
+    hint.classList.remove('is-visible');
+    removeTimer = setTimeout(() => hint.remove(), 450);
+    hint.removeEventListener('click', dismiss);
+    toggle.removeEventListener('click', dismiss);
+    seen();
+  };
+
+  /* Surface after 10s, linger a few seconds, then retreat on its own */
+  setTimeout(() => {
+    hint.classList.add('is-visible');
+    seen();
+    hideTimer = setTimeout(dismiss, 6000);
+    hint.addEventListener('click', dismiss);
+    toggle.addEventListener('click', dismiss);
+  }, 10000);
+}
+
+/* ================================================
+   SCROLL PROGRESS BAR
+   ================================================ */
+function initScrollProgress() {
+  const bar = document.getElementById('scroll-progress');
+  if (!bar) return;
+  const doc = document.documentElement;
+  let ticking = false;
+  const update = () => {
+    const max = doc.scrollHeight - doc.clientHeight;
+    const p = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+    bar.style.transform = 'scaleX(' + p + ')';
+    ticking = false;
+  };
+  window.addEventListener('scroll', () => {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+}
+
+/* ================================================
    INIT ALL
    ================================================ */
 function initAll() {
   initThemeToggle();
+  initAmbient();
   initCanvas();
   initSubCanvas('journey-canvas');
   initSubCanvas('blog-canvas');
+  initSubCanvas('skills-canvas');
   initScrollReveal();
   initContactForm();
   initBackToTop();
@@ -596,6 +791,10 @@ function initAll() {
   initImpactCounters();
   initChapterHighlight();
   initNavIndicator();
+  initAwardToggles();
+  initCertToggles();
+  initThemeHint();
+  initScrollProgress();
 
   /* Page-specific hero animations */
   if (document.getElementById('hero')) {
