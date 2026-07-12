@@ -476,7 +476,7 @@ function initContactForm() {
   form.addEventListener('submit', async e => {
     e.preventDefault();
     if (errorEl) errorEl.hidden = true;
-    btn.innerHTML = '<span>Sending…</span>';
+    btn.innerHTML = '<span>Sending…</span> <i class="fas fa-spinner fa-spin"></i>';
     btn.disabled = true;
 
     try {
