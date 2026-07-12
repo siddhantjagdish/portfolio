@@ -5,7 +5,7 @@
 /* ================================================
    GOOGLE ANALYTICS 4  —  set GA_ID to your Measurement ID
    ================================================ */
-var GA_ID = 'G-XXXXXXXXXX'; // ← replace with your GA4 Measurement ID (looks like G-ABC1234XYZ)
+var GA_ID = 'G-312SN9W5LY'; // ← replace with your GA4 Measurement ID (looks like G-ABC1234XYZ)
 (function () {
   if (!GA_ID || GA_ID === 'G-XXXXXXXXXX') return; // stays inert until a real ID is set
   var s = document.createElement('script');
