@@ -62,6 +62,13 @@
   const SPRITE_COLORS = { 1:'#6366f1', 2:'#fde68a', 3:'#1e1b4b', 4:'#7c3aed' };
   const PIXEL = 2;
 
+  /* Touch device check, evaluated lazily so late pointer changes are caught */
+  function isTouch() {
+    return (navigator.maxTouchPoints || 0) > 0 ||
+           'ontouchstart' in window ||
+           (window.matchMedia && matchMedia('(pointer: coarse)').matches);
+  }
+
   /* ── Init: build launcher UI + wire toggle ─── */
   function init() {
     buildLauncher();
@@ -74,6 +81,14 @@
     if (document.getElementById('game-launcher')) return;
     const wrap = document.createElement('div');
     wrap.id = 'game-launcher';
+    const controlsLine = isTouch()
+      ? `<b>Scroll</b> to reveal platforms &nbsp;·&nbsp; steer and jump with
+         the <b>on-screen buttons</b> &nbsp;·&nbsp; don't fall off the
+         bottom &nbsp;·&nbsp; tap <b>✕ EXIT</b> to quit.`
+      : `<b>Scroll</b> to reveal platforms &nbsp;·&nbsp; steer
+         <b>← →</b> (or <b>A&nbsp;D</b>) &nbsp;·&nbsp; <b>↑ / Space</b> to
+         jump &nbsp;·&nbsp; don't fall off the bottom &nbsp;·&nbsp;
+         <b>Esc</b> exits.`;
     wrap.innerHTML = `
       <button id="game-mode-btn" class="game-mode-btn">▶ GAME MODE</button>
       <button id="game-info-btn" class="game-info-btn" aria-label="How to play">i</button>
@@ -85,10 +100,7 @@
         restore Retention, NPS, and Velocity, and <b>bring the dashboard
         back online</b>.
         <br><br>
-        <b>Scroll</b> to reveal platforms &nbsp;·&nbsp; steer
-        <b>← →</b> (or <b>A&nbsp;D</b>) &nbsp;·&nbsp; <b>↑ / Space</b> to
-        jump &nbsp;·&nbsp; don't fall off the bottom &nbsp;·&nbsp;
-        <b>Esc</b> exits.
+        ${controlsLine}
       </div>`;
     document.body.appendChild(wrap);
     gameBtn = document.getElementById('game-mode-btn');
@@ -132,7 +144,9 @@
 
     const hint = document.createElement('div');
     hint.id = 'game-hint';
-    hint.innerHTML = 'Scroll to reveal platforms &nbsp;·&nbsp; ← → move &nbsp;·&nbsp; ↑ / Space jump &nbsp;·&nbsp; don\'t fall off &nbsp;·&nbsp; Esc exit';
+    hint.innerHTML = isTouch()
+      ? 'Scroll to reveal platforms &nbsp;·&nbsp; use the buttons below to move and jump &nbsp;·&nbsp; don\'t fall off'
+      : 'Scroll to reveal platforms &nbsp;·&nbsp; ← → move &nbsp;·&nbsp; ↑ / Space jump &nbsp;·&nbsp; don\'t fall off &nbsp;·&nbsp; Esc exit';
     document.body.appendChild(hint);
     setTimeout(() => hint.classList.add('fade-out'), 4600);
     setTimeout(() => hint.remove(), 5400);
@@ -140,6 +154,8 @@
     document.addEventListener('keydown', onKeyDown);
     document.addEventListener('keyup',   onKeyUp);
     window.addEventListener('resize', onResize);
+
+    if (isTouch()) buildTouchControls();
 
     onResize();
     resetGame();
@@ -159,6 +175,7 @@
     kpiPanel?.remove();
     toastEl?.remove();
     document.getElementById('game-hint')?.remove();
+    document.getElementById('game-touch-controls')?.remove();
 
     document.removeEventListener('keydown', onKeyDown);
     document.removeEventListener('keyup',   onKeyUp);
@@ -257,16 +274,61 @@
   function onKeyDown(e) {
     if (!active) return;
     keys[e.code] = true;
-    if ((e.code === 'Space' || e.code === 'ArrowUp' || e.code === 'KeyW') && player.onGround) {
-      player.vy = JUMP_FORCE;
-      player.onGround = false;
-    }
+    if (e.code === 'Space' || e.code === 'ArrowUp' || e.code === 'KeyW') doJump();
     /* Arrows + space drive the player; wheel/trackpad scrolls the page. */
     if (['Space','ArrowUp','ArrowLeft','ArrowRight','KeyA','KeyD','KeyW'].includes(e.code)) {
       e.preventDefault();
     }
   }
   function onKeyUp(e) { keys[e.code] = false; }
+
+  function doJump() {
+    if (player.onGround) {
+      player.vy = JUMP_FORCE;
+      player.onGround = false;
+    }
+  }
+
+  /* ── Touch controls (built only on touch devices) ── */
+  function buildTouchControls() {
+    if (document.getElementById('game-touch-controls')) return;
+    const pad = document.createElement('div');
+    pad.id = 'game-touch-controls';
+    pad.innerHTML = `
+      <div class="gt-cluster gt-cluster--move">
+        <button class="gt-btn" id="gt-left"  aria-label="Move left">&#9664;</button>
+        <button class="gt-btn" id="gt-right" aria-label="Move right">&#9654;</button>
+      </div>
+      <div class="gt-cluster gt-cluster--jump">
+        <button class="gt-btn gt-btn--jump" id="gt-jump" aria-label="Jump">&#9650;</button>
+      </div>`;
+    document.body.appendChild(pad);
+
+    /* Hold-to-move buttons drive the same key flags the keyboard uses.
+       Pointer events give us clean multi-touch (hold left + tap jump). */
+    const hold = (id, code) => {
+      const btn = document.getElementById(id);
+      const press   = e => { e.preventDefault(); keys[code] = true;  btn.classList.add('pressed'); };
+      const release = e => { e.preventDefault(); keys[code] = false; btn.classList.remove('pressed'); };
+      btn.addEventListener('pointerdown',   press);
+      btn.addEventListener('pointerup',     release);
+      btn.addEventListener('pointercancel', release);
+      btn.addEventListener('pointerleave',  release);
+      btn.addEventListener('contextmenu', e => e.preventDefault());
+    };
+    hold('gt-left',  'ArrowLeft');
+    hold('gt-right', 'ArrowRight');
+
+    const jumpBtn = document.getElementById('gt-jump');
+    jumpBtn.addEventListener('pointerdown', e => {
+      e.preventDefault();
+      jumpBtn.classList.add('pressed');
+      doJump();
+    });
+    ['pointerup', 'pointercancel', 'pointerleave'].forEach(ev =>
+      jumpBtn.addEventListener(ev, () => jumpBtn.classList.remove('pressed')));
+    jumpBtn.addEventListener('contextmenu', e => e.preventDefault());
+  }
 
   /* ── Loop ──────────────────────────────────── */
   function loop() {

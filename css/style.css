@@ -2479,3 +2479,54 @@ strong { color: var(--text); font-weight: 600; }
 @media (prefers-reduced-motion: reduce) {
   .scroll-progress { transition: none; }
 }
+
+/* ================================================
+   GAME MODE: TOUCH CONTROLS (touch devices only)
+   ================================================ */
+#game-touch-controls {
+  position: fixed;
+  left: 0; right: 0;
+  bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+  z-index: 9200;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 22px;
+  pointer-events: none;   /* only the buttons themselves are tappable */
+}
+.gt-cluster { display: flex; gap: 14px; pointer-events: none; }
+.gt-btn {
+  pointer-events: auto;
+  width: 62px; height: 62px;
+  border-radius: 50%;
+  border: 1px solid rgba(99,102,241,0.45);
+  background: rgba(15,15,36,0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #c7d2fe;
+  font-size: 1.15rem;
+  display: grid; place-items: center;
+  cursor: pointer;
+  touch-action: none;              /* presses never scroll the page */
+  user-select: none; -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 0.08s ease, background 0.12s ease;
+}
+.gt-btn--jump {
+  width: 72px; height: 72px;
+  border-color: rgba(168,85,247,0.55);
+  color: #e9d5ff;
+}
+.gt-btn.pressed {
+  transform: scale(0.9);
+  background: rgba(99,102,241,0.45);
+}
+[data-theme="light"] .gt-btn,
+[data-theme="purple-light"] .gt-btn {
+  background: rgba(255,255,255,0.72);
+  color: #4f46e5;
+  border-color: rgba(99,102,241,0.5);
+}
+[data-theme="light"] .gt-btn.pressed,
+[data-theme="purple-light"] .gt-btn.pressed {
+  background: rgba(99,102,241,0.28);
+}
