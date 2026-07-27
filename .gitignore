@@ -10,3 +10,6 @@ Thumbs.db
 
 # Claude Code local settings
 .claude/
+
+# Unrelated standalone project — not part of the portfolio
+plinth/
