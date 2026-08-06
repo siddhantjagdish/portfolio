@@ -2454,3 +2454,6 @@ a:not(.btn):not(.nav-link):not(.nav-logo):not(.footer-logo),
    serves fills and text alike. No separate text shade needed. */
 :root { --accent-text: #4169E1; }
 [data-theme="dark"] { --accent-text: #B0C3F5; }
+
+/* returning navigations: no monogram flash */
+.loader.instant { transition: none; opacity: 0; visibility: hidden; }

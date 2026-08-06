@@ -59,7 +59,7 @@
     [0,0,1,0,0,0,1,0,0],
     [0,0,3,0,0,0,3,0,0],
   ];
-  const SPRITE_COLORS = { 1:'#6366f1', 2:'#fde68a', 3:'#1e1b4b', 4:'#7c3aed' };
+  const SPRITE_COLORS = { 1:'#4169E1', 2:'#F2D8A7', 3:'#12203D', 4:'#2B4BA8' };
   const PIXEL = 2;
 
   /* Touch device check, evaluated lazily so late pointer changes are caught */
@@ -95,7 +95,7 @@
       <div id="game-info-tip" class="game-info-tip">
         <strong>Save the Dashboard</strong><br>
         Your product's dashboard just flatlined! <b>Retention, NPS &amp;
-        Velocity</b> are all at zero. Scattered across the page are
+        Velocity</b> are all at zero. Scattered down the left of the page are
         <b>5 Action orbs</b>, each representing a real PM decision. Collect them all to
         restore Retention, NPS, and Velocity, and <b>bring the dashboard
         back online</b>.

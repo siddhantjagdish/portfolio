@@ -33,11 +33,17 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
 window.addEventListener('load', () => {
   const loader = document.getElementById('loader');
   if (!loader) return;
+  /* Full monogram once per session; later navigations skip it so moving
+     around the site costs nothing. */
+  const seen = sessionStorage.getItem('sj-loaded');
+  const wait = seen ? 0 : 1000;
+  if (seen) loader.classList.add('instant');
   setTimeout(() => {
     loader.classList.add('gone');
     document.body.classList.remove('page-loading');
+    sessionStorage.setItem('sj-loaded', '1');
     initAll();
-  }, 1700);
+  }, wait);
 });
 
 /* ================================================
