@@ -447,21 +447,7 @@ function initAmbient() {
 /* ================================================
    GSAP SCROLL TRIGGERS (index only)
    ================================================ */
-function initScrollTriggers() {
-  if (typeof ScrollTrigger === 'undefined') return;
-
-  /* Parallax on hero background orbs */
-  gsap.to('.hero .orb-1', {
-    yPercent: -30,
-    ease: 'none',
-    scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
-  });
-  gsap.to('.hero .orb-2', {
-    yPercent: -20,
-    ease: 'none',
-    scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
-  });
-}
+function initScrollTriggers() { /* no decorative parallax in this system */ }
 
 /* ================================================
    CONTACT FORM
@@ -711,15 +697,16 @@ function initThemeToggle() {
   const btn = document.getElementById('theme-toggle');
   if (!btn) return;
 
-  const themes   = ['dark', 'purple-light', 'light'];
-  const completes = { 'dark': 0, 'purple-light': 50, 'light': 100 };
+  const themes   = ['light', 'dark'];
+  const completes = { 'light': 0, 'dark': 100 };
 
-  /* Restore saved preference — first-time visitors get the mixed (purple-light) theme */
-  const saved = localStorage.getItem('sj-theme') || 'purple-light';
+  /* Restore saved preference; first-time visitors get the light theme. */
+  const stored = localStorage.getItem('sj-theme');
+  const saved  = (stored === 'dark' || stored === 'light') ? stored : 'light';
   applyTheme(saved, btn, false);
 
   btn.addEventListener('click', () => {
-    const cur = document.documentElement.dataset.theme || 'dark';
+    const cur = document.documentElement.dataset.theme || 'light';
     const idx  = themes.indexOf(cur);
     const next = themes[(idx + 1) % themes.length];
     applyTheme(next, btn, true);
@@ -728,7 +715,7 @@ function initThemeToggle() {
 }
 
 function applyTheme(theme, btn, animate) {
-  const completes = { 'dark': 0, 'purple-light': 50, 'light': 100 };
+  const completes = { 'light': 0, 'dark': 100 };
   const targetComplete = completes[theme] ?? 0;
   btn.setAttribute('aria-pressed', theme === 'light' ? 'true' : 'false');
 

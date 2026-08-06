@@ -36,25 +36,22 @@
   <meta name="description" content="Siddhant Jagdish, Associate Product Manager, Entrepreneur, and AI & Automation Builder. CS grad from PES University, ex-Multiplier Technologies." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  <meta name="theme-color" content="#6366f1" />
+  <meta name="theme-color" content="#F4F6F8" />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="Siddhant Jagdish" />
   <link rel="stylesheet" href="css/style.css" />
   <!-- Prevent theme flash -->
   <script>
-    (function(){var t=localStorage.getItem('sj-theme')||'purple-light';document.documentElement.dataset.theme=t;})();
+    (function(){var t=localStorage.getItem('sj-theme');if(t!=='dark'&&t!=='light')t='light';document.documentElement.dataset.theme=t;})();
   </script>
 </head>
 <body class="page-loading">
 
   <!-- Ambient animated backdrop (sits behind all content) -->
   <div class="ambient" aria-hidden="true">
-    <div class="amb-orb amb-orb--1"></div>
-    <div class="amb-orb amb-orb--2"></div>
-    <div class="amb-orb amb-orb--3"></div>
     <div class="amb-dotgrid"></div>
     <canvas class="amb-particles"></canvas>
   </div>
@@ -132,9 +129,6 @@
   <section class="hero" id="hero">
     <div class="hero-bg">
       <canvas id="hero-canvas"></canvas>
-      <div class="orb orb-1"></div>
-      <div class="orb orb-2"></div>
-      <div class="orb orb-3"></div>
       <div class="dot-grid"></div>
     </div>
 
