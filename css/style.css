@@ -2424,3 +2424,16 @@ a:not(.btn):not(.nav-link):not(.nav-logo):not(.footer-logo):hover { color: var(-
 /* texture stays neutral so it never competes with the accent */
 .amb-particles { opacity: 0.10; filter: saturate(0); }
 [data-theme="dark"] .amb-particles { opacity: 0.14; filter: saturate(0); }
+
+
+/* stat figures: every span inside, not just the counter */
+.h-stat-num, .h-stat-num *, .bm-num, .bm-num * {
+  background: none !important;
+  -webkit-text-fill-color: currentColor !important;
+  color: var(--text) !important;
+}
+
+/* texture: barely perceptible, or nothing at all */
+.amb-particles { opacity: 0.05; }
+[data-theme="dark"] .amb-particles { opacity: 0.08; }
+.amb-dotgrid { opacity: 0.35; }
